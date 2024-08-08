@@ -97,6 +97,6 @@ pathway_heatmap <- function(df_list, pid, scale_to_one = F, remove_na_rows = F) 
 }
 
 # Example usage
-pathway_heatmap(df_list, 'mmu03013', scale_to_one = T, remove_na_rows = F)
+pathway_heatmap(df_list, 'mmu04110', scale_to_one = T, remove_na_rows = F)
 
 # mmu04141, mmu04510

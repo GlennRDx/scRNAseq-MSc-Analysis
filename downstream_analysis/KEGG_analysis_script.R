@@ -469,6 +469,8 @@ pathway_report(df_gob, "mmu04010")
 
 # Look at KEGG pathway graph of specific pathway
 specific_pathway_analysis = function(df, pid, p_val = 0.05){
+  owd = getwd()
+  setwd("/home/glennrdx/Documents/Research_Project/RNA-seq_Analysis/r_studio/KEGG_Results/crypt/Individual_Pathway_Analysis")
   df <- df[df$adj.P.Val <= p_val, ]
   
   # Extract gene symbols
@@ -491,9 +493,10 @@ specific_pathway_analysis = function(df, pid, p_val = 0.05){
            low = list(gene = "red"), 
            mid =list(gene = "gray"), 
            high = list(gene = "green"))
+  setwd(owd)
 }
 
-specific_pathway_analysis(df_enp, pid = 'mmu03013', p_val = 0.05)
+specific_pathway_analysis(df_ent, pid = 'mmu04110', p_val = 0.05)
 pathway_report(df_isc, kegg_pathway = 'mmu04530')
 
 
