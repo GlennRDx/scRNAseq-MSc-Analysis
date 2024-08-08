@@ -1,0 +1,462 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "https://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jan 14, 2022 10:12:18 +0900 (GMT+9) -->
+<pathway name="path:mmu04216" org="mmu" number="04216"
+         title="Ferroptosis"
+         image="https://www.kegg.jp/kegg/pathway/mmu/mmu04216.png"
+         link="https://www.kegg.jp/kegg-bin/show_pathway?mmu04216">
+    <entry id="10" name="path:mmu04216" type="map"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu04216">
+        <graphics name="TITLE:Ferroptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="93" y="58" width="105" height="25"/>
+    </entry>
+    <entry id="11" name="mmu:26570" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:26570">
+        <graphics name="Slc7a11, 9930009M05Rik, sut, xCT" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="206" y="169" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="cpd:C00025" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00025">
+        <graphics name="C00025" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="281" y="180" width="8" height="8"/>
+    </entry>
+    <entry id="13" name="cpd:C00491" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00491">
+        <graphics name="C00491" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="281" y="129" width="8" height="8"/>
+    </entry>
+    <entry id="15" name="mmu:22059" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:22059">
+        <graphics name="Trp53, Tp53, bbl, bfy, bhy, p44, p53" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="264" y="206" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="mmu:625249" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:625249">
+        <graphics name="Gpx4, GPx-4, GSHPx-4, PHGPx, mtPHGPx, snGPx" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="694" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="cpd:C00051" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00051">
+        <graphics name="C00051" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="660" y="129" width="8" height="8"/>
+    </entry>
+    <entry id="22" name="mmu:22334 mmu:22335" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:22334+mmu:22335">
+        <graphics name="Vdac2, Vdac6, mVDAC2, mVDAC6..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="627" y="479" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="cpd:C21478" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C21478">
+        <graphics name="C21478" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="124" y="109" width="8" height="8"/>
+    </entry>
+    <entry id="28" name="cpd:C00097" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00097">
+        <graphics name="C00097" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="400" y="129" width="8" height="8"/>
+    </entry>
+    <entry id="29" name="mmu:14629 mmu:14630" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:14629+mmu:14630">
+        <graphics name="Gclc, D9Wsu168e, GLCL-H, Ggcs-hs, Glclc..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="453" y="118" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="cpd:C00669" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00669">
+        <graphics name="C00669" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="524" y="129" width="8" height="8"/>
+    </entry>
+    <entry id="31" name="mmu:17254" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:17254">
+        <graphics name="Slc3a2, 4F2, 4F2HC, Cd98, Ly-10, Ly-m10, Ly10, Mdu1, Mgp-2hc, NACAE" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="206" y="152" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="cpd:C00418" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00418">
+        <graphics name="C00418" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="657" y="381" width="8" height="8"/>
+    </entry>
+    <entry id="35" name="cpd:C11378" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C11378">
+        <graphics name="C11378" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="738" y="381" width="8" height="8"/>
+    </entry>
+    <entry id="37" name="mmu:22042" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:22042">
+        <graphics name="Tfrc, 2610028K12Rik, CD71, E430033M20Rik, Mtvr1, TFR, TFR1, TR, Trfr, p90" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="207" y="370" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="cpd:C14819" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C14819">
+        <graphics name="C14819" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="124" y="369" width="8" height="8"/>
+    </entry>
+    <entry id="39" name="mmu:22041 mmu:71775" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:22041+mmu:71775">
+        <graphics name="Trf, Cd176, HP, Tf, Tfn, hpx..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="161" y="370" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="cpd:C14818" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C14818">
+        <graphics name="C14818" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="126" y="556" width="8" height="8"/>
+    </entry>
+    <entry id="42" name="mmu:12870" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12870">
+        <graphics name="Cp, D3Ertd555e" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="127" y="456" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="cpd:C21478" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C21478">
+        <graphics name="C21478" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="537" y="491" width="8" height="8"/>
+    </entry>
+    <entry id="51" name="mmu:22042" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:22042">
+        <graphics name="Tfrc, 2610028K12Rik, CD71, E430033M20Rik, Mtvr1, TFR, TFR1, TR, Trfr, p90" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="448" y="342" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="mmu:22041 mmu:71775" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:22041+mmu:71775">
+        <graphics name="Trf, Cd176, HP, Tf, Tfn, hpx..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="448" y="359" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="cpd:C14819" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C14819">
+        <graphics name="C14819" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="448" y="381" width="8" height="8"/>
+    </entry>
+    <entry id="55" name="cpd:C14818" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C14818">
+        <graphics name="C14818" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="448" y="445" width="8" height="8"/>
+    </entry>
+    <entry id="57" name="mmu:68428" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:68428">
+        <graphics name="Steap3, 1010001D01Rik, Tsap6, pHyde" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="394" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="mmu:22042" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:22042">
+        <graphics name="Tfrc, 2610028K12Rik, CD71, E430033M20Rik, Mtvr1, TFR, TFR1, TR, Trfr, p90" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="265" y="412" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="mmu:22041 mmu:71775" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:22041+mmu:71775">
+        <graphics name="Trf, Cd176, HP, Tf, Tfn, hpx..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="265" y="429" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="cpd:C14819" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C14819">
+        <graphics name="C14819" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="266" y="451" width="8" height="8"/>
+    </entry>
+    <entry id="63" name="cpd:C00127" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00127">
+        <graphics name="C00127" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="734" y="138" width="8" height="8"/>
+    </entry>
+    <entry id="64" name="mmu:14854" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:14854">
+        <graphics name="Gss, GS-A/GS-B, GSH-S" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="585" y="118" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="cpd:C14818" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C14818">
+        <graphics name="C14818" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="448" y="555" width="8" height="8"/>
+    </entry>
+    <entry id="66" name="mmu:18521 mmu:23983" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:18521+mmu:23983">
+        <graphics name="Pcbp2, Hnrpx, alphaCP-2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="474" y="592" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="mmu:53945" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:53945">
+        <graphics name="Slc40a1, Dusg, Fpn1, IREG1, MTP, MTP1, Ol5, Pcm, Slc11a3, Slc39a1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="206" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="cpd:C14818" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C14818">
+        <graphics name="C14818" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="343" y="556" width="8" height="8"/>
+    </entry>
+    <entry id="71" name="mmu:18521" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:18521">
+        <graphics name="Pcbp2, Hnrpx, alphaCP-2" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="343" y="531" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="mmu:14319 mmu:14325 mmu:434624" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:14319+mmu:14325+mmu:434624">
+        <graphics name="Fth1, FHC, Fth, HFt, MFH..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="447" y="656" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="cpd:C14819" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C14819">
+        <graphics name="C14819" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="448" y="633" width="8" height="8"/>
+    </entry>
+    <entry id="78" name="mmu:11793 mmu:74244" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:11793+mmu:74244">
+        <graphics name="Atg5, 2010107M05Rik, 3110067M24Rik, Apg5l, Atg5l, Paddy..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="537" y="645" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="mmu:14319 mmu:14325 mmu:434624" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:14319+mmu:14325+mmu:434624">
+        <graphics name="Fth1, FHC, Fth, HFt, MFH..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="686" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="81" name="cpd:C14819" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C14819">
+        <graphics name="C14819" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="686" y="610" width="8" height="8"/>
+    </entry>
+    <entry id="85" name="mmu:213053 mmu:67547" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:213053+mmu:67547">
+        <graphics name="Slc39a14, FAD-123, ZIP-14, Zip14, fad123..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="486" y="475" width="46" height="17"/>
+    </entry>
+    <entry id="87" name="mmu:18174" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:18174">
+        <graphics name="Slc11a2, DCT1, DMT1, Nramp2, mk, van" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="406" y="475" width="46" height="17"/>
+    </entry>
+    <entry id="89" name="mmu:66734 mmu:67443" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:66734+mmu:67443">
+        <graphics name="Map1lc3a, 1010001H21Rik, 4922501H04Rik, LC3, LC3a..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="537" y="622" width="46" height="17"/>
+    </entry>
+    <entry id="90" name="mmu:27057" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:27057">
+        <graphics name="Ncoa4, ARA70, Rfg" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="640" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="92" name="mmu:213053 mmu:67547" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:213053+mmu:67547">
+        <graphics name="Slc39a14, FAD-123, ZIP-14, Zip14, fad123..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="206" y="585" width="46" height="17"/>
+    </entry>
+    <entry id="93" name="cpd:C14818" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C14818">
+        <graphics name="C14818" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="126" y="585" width="8" height="8"/>
+    </entry>
+    <entry id="94" name="cpd:C14819" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C14819">
+        <graphics name="C14819" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="126" y="647" width="8" height="8"/>
+    </entry>
+    <entry id="95" name="mmu:19122" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:19122">
+        <graphics name="Prnp, CD230, PrP, PrP&lt;C&gt;, PrPC, PrPSc, Prn-i, Prn-p, Sinc, prP27-30, prP33-35C" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="206" y="622" width="46" height="17"/>
+    </entry>
+    <entry id="103" name="mmu:15368" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:15368">
+        <graphics name="Hmox1, D8Wsu38e, HO-1, HO1, Hemox, Hmox, Hsp32" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="318" y="622" width="46" height="17"/>
+    </entry>
+    <entry id="104" name="cpd:C00032" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00032">
+        <graphics name="C00032" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="283" y="633" width="8" height="8"/>
+    </entry>
+    <entry id="105" name="mmu:13058" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:13058">
+        <graphics name="Cybb, CGD91-phox, Cgd, Cyd, Nox2, gp91-1, gp91phox" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="627" y="503" width="46" height="17"/>
+    </entry>
+    <entry id="116" name="dr:D08524" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?D08524">
+        <graphics name="D08524" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="124" y="122" width="8" height="8"/>
+    </entry>
+    <entry id="117" name="dr:D00448" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?D00448">
+        <graphics name="D00448" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="124" y="148" width="8" height="8"/>
+    </entry>
+    <entry id="118" name="cpd:C16844 cpd:C00027" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C16844+C00027">
+        <graphics name="C16844..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="841" y="382" width="8" height="8"/>
+    </entry>
+    <entry id="134" name="cpd:C21479" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C21479">
+        <graphics name="C21479" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="649" y="178" width="8" height="8"/>
+    </entry>
+    <entry id="135" name="cpd:C00025" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00025">
+        <graphics name="C00025" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="124" y="135" width="8" height="8"/>
+    </entry>
+    <entry id="141" name="cpd:C00129" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00129">
+        <graphics name="C00129" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="697" y="323" width="8" height="8"/>
+    </entry>
+    <entry id="143" name="path:mmu00480" type="map"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu00480">
+        <graphics name="Glutathione metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="457" y="164" width="126" height="22"/>
+    </entry>
+    <entry id="144" name="path:mmu00900" type="map"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu00900">
+        <graphics name="Terpenoid backbone biosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="627" y="357" width="108" height="29"/>
+    </entry>
+    <entry id="145" name="mmu:67634" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:67634">
+        <graphics name="Ftmt, 4930447C24Rik, FerH, Fth3, MtF" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="726" y="516" width="46" height="17"/>
+    </entry>
+    <entry id="146" name="cpd:C14818" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C14818">
+        <graphics name="C14818" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="689" y="516" width="8" height="8"/>
+    </entry>
+    <entry id="149" name="cpd:C21483" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C21483">
+        <graphics name="C21483" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="660" y="260" width="8" height="8"/>
+    </entry>
+    <entry id="150" name="cpd:C21482" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C21482">
+        <graphics name="C21482" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="735" y="219" width="8" height="8"/>
+    </entry>
+    <entry id="157" name="mmu:20229 mmu:69215" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:20229+mmu:69215">
+        <graphics name="Sat1, SSAT, Sat..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="527" y="215" width="46" height="17"/>
+    </entry>
+    <entry id="158" name="cpd:C21480 cpd:C21481" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C21480+C21481">
+        <graphics name="C21480..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="524" y="260" width="8" height="8"/>
+    </entry>
+    <entry id="160" name="cpd:C02249 cpd:C16170" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C02249+C16170">
+        <graphics name="C02249..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="400" y="260" width="8" height="8"/>
+    </entry>
+    <entry id="162" name="mmu:14081 mmu:216739 mmu:433256 mmu:50790 mmu:74205" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:14081+mmu:216739+mmu:433256+mmu:50790+mmu:74205">
+        <graphics name="Acsl1, Acas, Acas1, Acs, FACS, Facl2, LACS_1, LACS1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="348" y="249" width="46" height="17"/>
+    </entry>
+    <entry id="163" name="mmu:14792" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:14792">
+        <graphics name="Lpcat3, C3f, Grcc3f, Lpcat, Lpeat, Lplat5, Lpsat, Mboat5, Moact5, Oact5, PTG" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="457" y="249" width="46" height="17"/>
+    </entry>
+    <entry id="164" name="mmu:11687" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:11687">
+        <graphics name="Alox15, 12-LO, 12/15-LO, 15-LOX, Alox12l, L-12LO" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="587" y="249" width="46" height="17"/>
+    </entry>
+    <entry id="165" name="cpd:C00219 cpd:C16527" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00219+C16527">
+        <graphics name="C00219..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="288" y="243" width="8" height="8"/>
+    </entry>
+    <entry id="166" name="cpd:C00010" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00010">
+        <graphics name="C00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="288" y="277" width="8" height="8"/>
+    </entry>
+    <entry id="168" name="cpd:C02477" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C02477">
+        <graphics name="C02477" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="594" y="219" width="8" height="8"/>
+    </entry>
+    <entry id="171" name="cpd:C21484" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C21484">
+        <graphics name="C21484" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="455" y="289" width="8" height="8"/>
+    </entry>
+    <entry id="174" name="cpd:C00024" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00024">
+        <graphics name="C00024" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="532" y="332" width="8" height="8"/>
+    </entry>
+    <entry id="175" name="cpd:C00356" type="compound"
+        link="https://www.kegg.jp/dbget-bin/www_bget?C00356">
+        <graphics name="C00356" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="568" y="381" width="8" height="8"/>
+    </entry>
+    <entry id="176" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="206" y="160" width="46" height="34"/>
+        <component id="11"/>
+        <component id="31"/>
+    </entry>
+    <relation entry1="15" entry2="11" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="23" entry2="176" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="116" entry2="176" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="135" entry2="176" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="117" entry2="176" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="134" entry2="17" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="31" entry2="11" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="38" entry2="39" type="PCrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="39" entry2="37" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="58" entry2="59" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="60" entry2="59" type="PCrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="53" entry2="52" type="PCrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="52" entry2="51" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="71" entry2="70" type="PCrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="74" entry2="73" type="PCrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="81" entry2="80" type="PCrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="90" entry2="80" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="146" entry2="145" type="PCrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="35" entry2="118" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="149" entry2="118" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="22" entry2="118" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="105" entry2="118" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+</pathway>
