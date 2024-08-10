@@ -1,6 +1,10 @@
-pathway_heatmap <- function(df_list, pid, scale_to_one = F, remove_na_rows = F) {
-  # Step 1: Get the list of genes associated with the KEGG pathway
-  gene_list <- unique(get_gene_list(pid, 'KEGG')$SYMBOL)
+pathway_heatmap <- function(df_list, pid, gene_list = NULL, scale_to_one = FALSE, remove_na_rows = FALSE) {
+  # Step 1: Get the list of genes
+  if (!is.null(gene_list)) {
+    gene_list <- unique(gene_list)
+  } else {
+    gene_list <- unique(get_gene_list(pid, 'KEGG')$SYMBOL)
+  }
   
   # Initialize empty tables with appropriate dimensions
   p_val <- data.frame(matrix(ncol = length(df_list), nrow = length(gene_list)))
@@ -52,6 +56,16 @@ pathway_heatmap <- function(df_list, pid, scale_to_one = F, remove_na_rows = F) 
   logFC_clean <- logFC
   logFC_clean[is.na(logFC_clean)] <- 0  # Assuming 0 is a reasonable substitute for missing logFC
   
+  # Calculate the sum of significant logFC values for each gene (row)
+  significance_threshold <- 0.05  # You can adjust this threshold
+  significant_logFC <- logFC_clean
+  significant_logFC[p_val_clean >= significance_threshold] <- 0  # Zero out non-significant logFC values
+  logFC_sums <- rowSums(significant_logFC, na.rm = TRUE)
+  
+  # Order the rows by the sum of significant logFC values
+  logFC_clean <- logFC_clean[order(logFC_sums, decreasing = TRUE), ]
+  p_val_clean <- p_val_clean[rownames(logFC_clean), ]  # Ensure p_val matches the new order
+  
   # Determine the color scale range and create custom breaks
   if (scale_to_one) {
     max_abs_logFC <- max(abs(logFC_clean), na.rm = TRUE)
@@ -86,17 +100,24 @@ pathway_heatmap <- function(df_list, pid, scale_to_one = F, remove_na_rows = F) 
   
   # Generate the heatmap with significance annotations
   pheatmap(logFC_clean, 
-           main = paste0("Heatmap of logFC ", pid, ' ', get_kegg_pathway_name(pid)), 
-           cluster_rows = T, 
-           cluster_cols = F, 
+           main = if (!is.null(gene_list)) "Heatmap of logFC (Custom Gene List)" else paste0("Heatmap of logFC ", pid, ' ', get_kegg_pathway_name(pid)), 
+           cluster_rows = FALSE,  # Turn off row clustering
+           cluster_cols = FALSE, 
            display_numbers = significance_symbols, 
            color = color_palette, 
            breaks = breaks,
            border_color = NA,
-           fontsize = 5)
+           fontsize = 8)
 }
 
 # Example usage
-pathway_heatmap(df_list, 'mmu04110', scale_to_one = T, remove_na_rows = F)
+pathway_heatmap(df_list, 'mmu04120', scale_to_one = T, remove_na_rows = F)
+pathway_heatmap(df_list, 'mmu04120', gene_list = hsp_genes, scale_to_one = T, remove_na_rows = F)
+
 
 # mmu04141, mmu04510
+
+# Extract the 'X' column from each dataframe in df_list and combine them 
+genes <- unique(unlist(lapply(df_list, function(df) df$X)))
+# Subset the 'genes' list with genes starting with "hsp", case-insensitive 
+hsp_genes <- genes[grepl("^hsp", genes, ignore.case = TRUE)]
