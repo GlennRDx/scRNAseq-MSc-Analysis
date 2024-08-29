@@ -1,3 +1,20 @@
+# Install from terminal
+# sudo apt-get update
+# sudo apt-get install libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev libfribidi-dev libharfbuzz-dev libtiff-dev libxml2-dev pandoc
+
+# regular packages
+install.packages('pak')
+library(pak)
+pak('ggplot2')
+pak('stringr')
+pak('tools')
+pak('ggridges')
+pak('viridis')
+pak('tidyverse')
+pak('ggtext')
+pak('dplyr')
+pak('pheatmap')
+
 # Install bioconductor
 if (!require("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
@@ -12,20 +29,11 @@ BiocManager::install("enrichplot")
 BiocManager::install("gage")
 BiocManager::install("gageData")
 BiocManager::install("KEGGREST")
-BiocManager::install("AnnotationDbi")
-
-# regular packages
-pak('ggplot2')
-pak('stringr')
-pak('tools')
-pak('ggridges')
-pak('viridis')
-pak('tidyverse')
-pak('ggtext')
-pak('dplyr')
+BiocManager::install("AnnotationDbi", force = T)
 
 # Load packages
 library(clusterProfiler)
+library(AnnotationDbi)
 library(org.Mm.eg.db)
 library(DOSE)
 library(pathview)
@@ -41,4 +49,4 @@ library(viridis)
 library(tidyverse)
 library(KEGGREST)
 library(ggtext)
-
+library(pheatmap)

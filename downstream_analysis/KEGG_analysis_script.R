@@ -434,18 +434,18 @@ pathway_report <- function(data, kegg_pathway, pval_threshold = 0.05) {
 ################################### Test Code ##################################
 
 # Test single dataset
-results <- analyze_pathways(df = df_gob, cell_type = 'GOB', p_val = 0.05, lfc = 0, export_pathway_files = F, cats = cats)
+results <- analyze_pathways(df = df_ent, cell_type = 'ENT', p_val = 0.05, lfc = 0, export_pathway_files = F, cats = cats)
 View(results$keggres$greater)
 
 # Test all datasets in folder
-crypt_path = '/home/glennrdx/Documents/Research_Project/RNA-seq_Analysis/python/crypt/differential_expression'
+crypt_path = '/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/upstream_analysis/crypt/differential_expression_scanpy/'
 villi_path = '/home/glennrdx/Documents/Research_Project/RNA-seq_Analysis/python/villi/differential_expression'
 pseudo_path = '/home/glennrdx/Documents/Research_Project/RNA-seq_Analysis/python/crypt_pb/differential_expression'
 crp_out_path = '/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/crypt'
 vil_out_path = '/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/villi'
 sdo_out_path = '/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/pseudo'
 
-process_files(input_directory = crypt_path, output_directory = crp_out_path, p_val = 0.05, lfc = 0, export_pathway_files = F, cats = cats)
+process_files(input_directory = crypt_path, output_directory = crp_out_path, p_val = 0.05, lfc = 0, export_pathway_files = T, cats = cats)
 
 # Report details about specific pathway
 pathway_report(df_gob, "mmu04010")
@@ -479,7 +479,7 @@ specific_pathway_analysis = function(df, pid, p_val = 0.05){
   setwd(owd)
 }
 
-specific_pathway_analysis(df_isc, pid = 'mmu04140', p_val = 0.05)
+specific_pathway_analysis(df_ent, pid = 'mmu04530', p_val = 0.05)
 pathway_report(df_isc, kegg_pathway = 'mmu04530')
 
 

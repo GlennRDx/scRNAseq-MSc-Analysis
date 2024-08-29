@@ -116,7 +116,7 @@ pathway_heatmap <- function(df_list, pid = NULL, scale_to_one = F, remove_na_row
 }
 
 # Example usage with KEGG pathway
-pathway_heatmap(df_list, pid = 'mmu04140', scale_to_one = T, remove_na_rows = T, order_by_sum = T)
+pathway_heatmap(df_list, pid = 'mmu04973', scale_to_one = T, remove_na_rows = T, order_by_sum = T)
 
 # Example usage with a custom gene list
 genes <- unique(unlist(lapply(df_list, function(df) df$X)))
