@@ -1,10 +1,3 @@
-library(aPEAR)
-library(org.Mm.eg.db)
-library(enrichplot)
-library(clusterProfiler)
-library(ggplot2)
-library(stringr)
-
 perform_GO_enrichment <- function(df, ONTOLOGY = NULL, orgdb = org.Mm.eg.db, showCategory = 50, nPermSimple = 10000) {
   set.seed(1)
   
@@ -15,6 +8,9 @@ perform_GO_enrichment <- function(df, ONTOLOGY = NULL, orgdb = org.Mm.eg.db, sho
   # Remove duplicates
   df <- df[!duplicated(entrez_ids[df$X]), ]
   entrez_ids <- entrez_ids[!duplicated(entrez_ids)]
+  
+  # Remove insignificant genes
+  df <- df[df$adj.P.Val < 0.05,]
   
   # Create a named vector of logFC values
   geneList <- df$logFC
@@ -64,4 +60,4 @@ perform_GO_enrichment <- function(df, ONTOLOGY = NULL, orgdb = org.Mm.eg.db, sho
   return(list(enrich = enrich, enrichnet = enrichnet))
 }
 
-enrichnet = perform_GO_enrichment(df = df_enp, ONTOLOGY = 'BP')
+enrichnet = perform_GO_enrichment(df = df_ent, ONTOLOGY = 'BP')

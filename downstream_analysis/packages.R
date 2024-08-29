@@ -14,6 +14,7 @@ pak('tidyverse')
 pak('ggtext')
 pak('dplyr')
 pak('pheatmap')
+pak('aPEAR')
 
 # Install bioconductor
 if (!require("BiocManager", quietly = TRUE))
@@ -50,3 +51,4 @@ library(tidyverse)
 library(KEGGREST)
 library(ggtext)
 library(pheatmap)
+library(aPEAR)
