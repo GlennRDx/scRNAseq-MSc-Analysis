@@ -36,7 +36,13 @@ pathway_heatmap <- function(df_list, pid = NULL, scale_to_one = F, remove_na_row
         
         # Populate p-value and logFC
         p_val[gene, i] <- df$adj.P.Val[gene_idx]
-        logFC[gene, i] <- df$abs.log2FC[gene_idx]
+        
+        # Set logFC to NaN if p-value is not significant
+        if (df$adj.P.Val[gene_idx] < 0.05) {
+          logFC[gene, i] <- df$abs.log2FC[gene_idx]
+        } else {
+          logFC[gene, i] <- NaN
+        }
       }
     }
   }
@@ -116,7 +122,7 @@ pathway_heatmap <- function(df_list, pid = NULL, scale_to_one = F, remove_na_row
 }
 
 # Example usage with KEGG pathway
-pathway_heatmap(df_list, pid = 'mmu04973', scale_to_one = T, remove_na_rows = T, order_by_sum = T)
+pathway_heatmap(df_list, pid = 'mmu04630', scale_to_one = T, remove_na_rows = F, order_by_sum = T)
 
 # Example usage with a custom gene list
 genes <- unique(unlist(lapply(df_list, function(df) df$X)))

@@ -479,7 +479,7 @@ specific_pathway_analysis = function(df, pid, p_val = 0.05){
   setwd(owd)
 }
 
-specific_pathway_analysis(df_ent, pid = 'mmu04530', p_val = 0.05)
+specific_pathway_analysis(df_isc, pid = 'mmu04140', p_val = 0.05)
 pathway_report(df_isc, kegg_pathway = 'mmu04530')
 
 

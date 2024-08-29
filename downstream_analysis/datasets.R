@@ -30,4 +30,3 @@ df_list = list(df_isc = df_isc,
                df_gob = df_gob,
                df_tuf = df_tuf,
                df_eec = df_eec)
-
