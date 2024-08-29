@@ -1,21 +1,4 @@
 setwd('/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/')
-################################### Load packages ##############################
-library(clusterProfiler)
-library(org.Mm.eg.db)
-library(DOSE)
-library(pathview)
-library(dplyr)
-library(enrichplot)
-library(ggplot2)
-library(stringr)
-library(gage)
-library(gageData)
-library(tools)
-library(ggridges)
-library(viridis)
-library(tidyverse)
-library(KEGGREST)
-library(ggtext)
 
 ########################## Define secondary functions ##########################
 
