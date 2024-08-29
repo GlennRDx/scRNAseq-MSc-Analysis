@@ -25,14 +25,9 @@ df_tuf = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analys
 df_tup = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Tuft Progenitor.csv")
 
 df_list = list(df_isc = df_isc,
+               df_enp = df_enp,
                df_ent = df_ent,
                df_gob = df_gob,
                df_tuf = df_tuf,
-               df_eec = df_eec,
-               df_eep = df_eep,
-               df_enp = df_enp,
-               df_gop = df_gop,
-               df_pan = df_pan,
-               df_pap = df_pap,
-               df_tup = df_tup)
+               df_eec = df_eec)
 
