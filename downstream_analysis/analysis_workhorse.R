@@ -23,6 +23,10 @@ pathway_list = c('mmu04612', 'mmu03320')
 dataset = df_gob
 cell_type = 'GOB'
 
+# Lipid Metabolism Analysis
+pathway_list = c('mmu00010', 'mmu00190')
+dataset = df_ent
+cell_type = 'Lipid_Metabolism'
 
 # Iterate through pathways for cell type
 for (pathway in pathway_list) {

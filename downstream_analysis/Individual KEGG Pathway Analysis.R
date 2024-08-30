@@ -164,7 +164,9 @@ pathway_heatmap <- function(df_list,
 }
 
 
-
+# # # Example usage with a custom gene list
+# genes <- unique(unlist(lapply(df_list, function(df) df$X)))
+# hsp_genes <- genes[grepl("^hsp", genes, ignore.case = TRUE)]
 
 # Example usage with KEGG pathway
 pathway_heatmap(df_list, 
@@ -175,7 +177,5 @@ pathway_heatmap(df_list,
                 output_dir = "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/crypt/Individual_Pathway_Analysis/",
                 file_name = "heatmap.png")
 
-# # Example usage with a custom gene list
-# genes <- unique(unlist(lapply(df_list, function(df) df$X)))
-# hsp_genes <- genes[grepl("^hsp", genes, ignore.case = TRUE)]
+
 # pathway_heatmap(df_list, custom_gene_list = hsp_genes, scale_to_one = T, remove_na_rows = T, order_by_sum = T)
