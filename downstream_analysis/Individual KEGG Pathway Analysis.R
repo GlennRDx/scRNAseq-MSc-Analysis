@@ -174,6 +174,7 @@ pathway_heatmap(df_list,
                 order_by_sum = TRUE,
                 output_dir = "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/crypt/Individual_Pathway_Analysis/",
                 file_name = "heatmap.png")
+
 # # Example usage with a custom gene list
 # genes <- unique(unlist(lapply(df_list, function(df) df$X)))
 # hsp_genes <- genes[grepl("^hsp", genes, ignore.case = TRUE)]
