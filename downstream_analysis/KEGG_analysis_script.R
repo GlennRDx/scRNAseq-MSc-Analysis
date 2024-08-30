@@ -306,8 +306,8 @@ analyze_pathways <- function(df, cell_type = 'Cell_Type', p_val = 0.05, lfc = 0.
       theme_ridges() +
       theme(legend.position = "right",
             axis.text.y = ggtext::element_markdown()) +  # Use ggtext to enable markdown rendering
-      labs(title = paste("Ridge Plots for", cell_type, "Pathways"),
-           x = "abs.log2FC",
+      labs(title = paste("KEGG Pathway Enrichment - Density plots - ", cell_type),
+           x = "log2FC",
            y = "Pathways",
            fill = "Gene Ratio",
            color = "Category")
@@ -434,26 +434,26 @@ pathway_report <- function(data, kegg_pathway, pval_threshold = 0.05) {
 ################################### Test Code ##################################
 
 # Test single dataset
-results <- analyze_pathways(df = df_ent, cell_type = 'ENT', p_val = 0.05, lfc = 0, export_pathway_files = F, cats = cats)
-View(results$keggres$greater)
+# results <- analyze_pathways(df = df_ent, cell_type = 'ENT', p_val = 0.05, lfc = 0, export_pathway_files = F, cats = cats)
+# View(results$keggres$greater)
 
 # Test all datasets in folder
 crypt_path = '/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/upstream_analysis/crypt/differential_expression_scanpy/'
-villi_path = '/home/glennrdx/Documents/Research_Project/RNA-seq_Analysis/python/villi/differential_expression'
-pseudo_path = '/home/glennrdx/Documents/Research_Project/RNA-seq_Analysis/python/crypt_pb/differential_expression'
+# villi_path = '/home/glennrdx/Documents/Research_Project/RNA-seq_Analysis/python/villi/differential_expression'
+# pseudo_path = '/home/glennrdx/Documents/Research_Project/RNA-seq_Analysis/python/crypt_pb/differential_expression'
 crp_out_path = '/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/crypt'
-vil_out_path = '/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/villi'
-sdo_out_path = '/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/pseudo'
+# vil_out_path = '/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/villi'
+# sdo_out_path = '/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/pseudo'
 
-process_files(input_directory = crypt_path, output_directory = crp_out_path, p_val = 0.05, lfc = 0, export_pathway_files = T, cats = cats)
+# process_files(input_directory = crypt_path, output_directory = crp_out_path, p_val = 0.05, lfc = 0, export_pathway_files = T, cats = cats)
 
 # Report details about specific pathway
-pathway_report(df_gob, "mmu04010")
+# pathway_report(df_gob, "mmu04010")
 
 # Look at KEGG pathway graph of specific pathway
-specific_pathway_analysis = function(df, pid, p_val = 0.05){
+specific_pathway_analysis = function(df, pid, output_directory = '/home/', p_val = 0.05){
   owd = getwd()
-  setwd("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/crypt/Individual_Pathway_Analysis")
+  setwd(output_directory)
   df <- df[df$adj.P.Val <= p_val, ]
   
   # Extract gene symbols
@@ -479,11 +479,11 @@ specific_pathway_analysis = function(df, pid, p_val = 0.05){
   setwd(owd)
 }
 
-specific_pathway_analysis(df_isc, pid = 'mmu04140', p_val = 0.05)
-pathway_report(df_isc, kegg_pathway = 'mmu04530')
+# specific_pathway_analysis(df_isc, pid = 'mmu04140', p_val = 0.05)
+# pathway_report(df_isc, kegg_pathway = 'mmu04530')
 
 
-count_kegg_pathways("Tuba1b")
+# count_kegg_pathways("Tuba1b")
 
 ################################### Misc. ######################################
 

@@ -1,4 +1,14 @@
-pathway_heatmap <- function(df_list, pid = NULL, scale_to_one = F, remove_na_rows = F, order_by_sum = T, custom_gene_list = NULL) {
+pathway_heatmap <- function(df_list, pid = NULL, scale_to_one = FALSE, remove_na_rows = FALSE, order_by_sum = TRUE, custom_gene_list = NULL, filename = "heatmap.png", directory = getwd()) {
+  
+  # Ensure the directory path ends with a slash
+  if (!grepl("/$", directory)) {
+    directory <- paste0(directory, "/")
+  }
+  
+  # Construct the full file path
+  file_path <- paste0(directory, filename)
+  
+  pathway_name = get_kegg_pathway_name(pid)
   
   # Step 1: Determine the gene list
   if (!is.null(custom_gene_list)) {
@@ -16,8 +26,12 @@ pathway_heatmap <- function(df_list, pid = NULL, scale_to_one = F, remove_na_row
   # Set row names and column names
   rownames(p_val) <- gene_list
   rownames(logFC) <- gene_list
-  colnames(p_val) <- names(df_list)
-  colnames(logFC) <- names(df_list)
+  
+  # Extract the last 3 characters of each dataframe name and convert to uppercase
+  colnames(p_val) <- toupper(substr(names(df_list), nchar(names(df_list)) - 2, nchar(names(df_list))))
+  colnames(logFC) <- colnames(p_val)
+  
+  n_genes = length(gene_list)
   
   # Step 2: Populate the tables using df$P.value and df$abs.log2FC
   for (i in seq_along(df_list)) {
@@ -49,14 +63,19 @@ pathway_heatmap <- function(df_list, pid = NULL, scale_to_one = F, remove_na_row
   
   # Conditionally remove rows that are entirely NAs
   if (remove_na_rows) {
-    non_na_rows <- apply(p_val, 1, function(row) !all(is.na(row)))
+    non_na_rows <- apply(logFC, 1, function(row) !all(is.na(row)))
     p_val <- p_val[non_na_rows, ]
     logFC <- logFC[non_na_rows, ]
+    n_omitted = sum(!non_na_rows)
+    # Calculate the percentage of the pathway that has been omitted
+    percentage_omitted = round((n_omitted / n_genes) * 100, 3)
   } else {
     # Move rows in p_val that are entirely NAs to the end
     na_rows <- apply(p_val, 1, function(row) all(is.na(row)))
     p_val <- rbind(p_val[!na_rows, ], p_val[na_rows, ])
     logFC <- logFC[rownames(p_val), ]  # Ensure the order of logFC matches p_val
+    n_omitted = sum(na_rows)  # Omitted rows are those moved to the end
+    percentage_omitted = 0
   }
   
   p_val_clean <- p_val
@@ -109,20 +128,35 @@ pathway_heatmap <- function(df_list, pid = NULL, scale_to_one = F, remove_na_row
   # Apply the function to the p-value table
   significance_symbols <- apply(p_val_clean, c(1, 2), pval_to_significance)
   
+  # Open a PNG device
+  png(filename = file_path, width = 1200, height = 1200, res = 150)  # Adjust width, height, and resolution as needed
+  
   # Generate the heatmap with significance annotations
+  title_text <- if (remove_na_rows) {
+    paste0(pathway_name, "\nHeatmap of logFC ", if (!is.null(pid)) pid else "Custom Genes", ' - ', n_omitted, " genes omitted (", percentage_omitted, "%)")
+  } else {
+    paste0(pathway_name, "\nHeatmap of logFC ", if (!is.null(pid)) pid else "Custom Genes")
+  }
+  
   pheatmap(logFC_clean, 
-           main = paste0("Heatmap of logFC ", if (!is.null(pid)) pid else "Custom Genes"), 
+           main = title_text, 
            cluster_rows = !order_by_sum,  # Cluster rows if not ordering by sum
-           cluster_cols = F, 
+           cluster_cols = FALSE, 
            display_numbers = significance_symbols, 
            color = color_palette, 
            breaks = breaks,
            border_color = NA,
-           fontsize = 10)
+           fontsize = 10,
+           labels_col = colnames(logFC_clean))  # Use the modified column names
+  
+  # Close the PNG device
+  dev.off()
 }
 
+
+
 # Example usage with KEGG pathway
-pathway_heatmap(df_list, pid = 'mmu04630', scale_to_one = T, remove_na_rows = F, order_by_sum = T)
+pathway_heatmap(df_list, pid = 'mmu04630', scale_to_one = TRUE, remove_na_rows = TRUE, order_by_sum = TRUE, filename = "my_heatmap.png", directory = "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/crypt//Individual_Pathway_Analysis")
 
 # Example usage with a custom gene list
 genes <- unique(unlist(lapply(df_list, function(df) df$X)))
