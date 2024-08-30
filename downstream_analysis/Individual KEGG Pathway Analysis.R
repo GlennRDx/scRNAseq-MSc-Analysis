@@ -1,12 +1,11 @@
-pathway_heatmap <- function(df_list, pid = NULL, scale_to_one = FALSE, remove_na_rows = FALSE, order_by_sum = TRUE, custom_gene_list = NULL, filename = "heatmap.png", directory = getwd()) {
-  
-  # Ensure the directory path ends with a slash
-  if (!grepl("/$", directory)) {
-    directory <- paste0(directory, "/")
-  }
-  
-  # Construct the full file path
-  file_path <- paste0(directory, filename)
+pathway_heatmap <- function(df_list, 
+                            pid = NULL, 
+                            scale_to_one = FALSE, 
+                            remove_na_rows = FALSE, 
+                            order_by_sum = TRUE, 
+                            custom_gene_list = NULL,
+                            output_dir = ".",
+                            file_name = "heatmap.jpg") {
   
   pathway_name = get_kegg_pathway_name(pid)
   
@@ -128,9 +127,6 @@ pathway_heatmap <- function(df_list, pid = NULL, scale_to_one = FALSE, remove_na
   # Apply the function to the p-value table
   significance_symbols <- apply(p_val_clean, c(1, 2), pval_to_significance)
   
-  # Open a PNG device
-  png(filename = file_path, width = 1200, height = 1200, res = 150)  # Adjust width, height, and resolution as needed
-  
   # Generate the heatmap with significance annotations
   title_text <- if (remove_na_rows) {
     paste0(pathway_name, "\nHeatmap of logFC ", if (!is.null(pid)) pid else "Custom Genes", ' - ', n_omitted, " genes omitted (", percentage_omitted, "%)")
@@ -138,6 +134,18 @@ pathway_heatmap <- function(df_list, pid = NULL, scale_to_one = FALSE, remove_na
     paste0(pathway_name, "\nHeatmap of logFC ", if (!is.null(pid)) pid else "Custom Genes")
   }
   
+  # Ensure output directory exists
+  if (!dir.exists(output_dir)) {
+    dir.create(output_dir, recursive = TRUE)
+  }
+  
+  # Define the file path
+  file_path <- file.path(output_dir, file_name)
+  
+  # Open a JPEG device
+  png(filename = file_path, width = 1500, height = 1500, res = 200)
+  
+  # Plot the heatmap
   pheatmap(logFC_clean, 
            main = title_text, 
            cluster_rows = !order_by_sum,  # Cluster rows if not ordering by sum
@@ -149,16 +157,24 @@ pathway_heatmap <- function(df_list, pid = NULL, scale_to_one = FALSE, remove_na
            fontsize = 10,
            labels_col = colnames(logFC_clean))  # Use the modified column names
   
-  # Close the PNG device
+  # Close the JPEG device
   dev.off()
+  
+  message("Heatmap saved to ", file_path)
 }
 
 
 
-# Example usage with KEGG pathway
-pathway_heatmap(df_list, pid = 'mmu04630', scale_to_one = TRUE, remove_na_rows = TRUE, order_by_sum = TRUE, filename = "my_heatmap.png", directory = "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/crypt//Individual_Pathway_Analysis")
 
-# Example usage with a custom gene list
-genes <- unique(unlist(lapply(df_list, function(df) df$X)))
-hsp_genes <- genes[grepl("^hsp", genes, ignore.case = TRUE)]
-pathway_heatmap(df_list, custom_gene_list = hsp_genes, scale_to_one = T, remove_na_rows = T, order_by_sum = T)
+# Example usage with KEGG pathway
+pathway_heatmap(df_list, 
+                pid = 'mmu04630', 
+                scale_to_one = TRUE, 
+                remove_na_rows = TRUE, 
+                order_by_sum = TRUE,
+                output_dir = "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/crypt/Individual_Pathway_Analysis/",
+                file_name = "heatmap.png")
+# # Example usage with a custom gene list
+# genes <- unique(unlist(lapply(df_list, function(df) df$X)))
+# hsp_genes <- genes[grepl("^hsp", genes, ignore.case = TRUE)]
+# pathway_heatmap(df_list, custom_gene_list = hsp_genes, scale_to_one = T, remove_na_rows = T, order_by_sum = T)
