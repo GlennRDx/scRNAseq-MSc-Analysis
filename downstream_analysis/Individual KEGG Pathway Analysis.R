@@ -143,7 +143,7 @@ pathway_heatmap <- function(df_list,
   file_path <- file.path(output_dir, file_name)
   
   # Open a JPEG device
-  png(filename = file_path, width = 1500, height = 1500, res = 200)
+  png(filename = file_path, width = 1500, height = 2200, res = 200)
   
   # Plot the heatmap
   pheatmap(logFC_clean, 
@@ -170,7 +170,7 @@ pathway_heatmap <- function(df_list,
 
 # Example usage with KEGG pathway
 pathway_heatmap(df_list, 
-                pid = 'mmu04630', 
+                pid = 'mmu04141', 
                 scale_to_one = TRUE, 
                 remove_na_rows = TRUE, 
                 order_by_sum = TRUE,

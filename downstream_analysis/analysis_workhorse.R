@@ -28,6 +28,21 @@ pathway_list = c('mmu00010', 'mmu00190')
 dataset = df_ent
 cell_type = 'Lipid_Metabolism'
 
+# Protein Folding Analysis
+pathway_list = c('mmu03050', 'mmu04141')
+dataset = df_enp
+cell_type = 'Protein_Folding'
+
+# Barrier Function Analysis
+pathway_list = c('mmu04530', 'mmu04520', 'mmu04540', 'mmu04550')
+dataset = df_ent
+cell_type = 'Barrier_Function'
+
+# Inflammation Analysis
+pathway_list = c('mmu04630', 'mmu04064', 'mmu04060')
+dataset = df_isc
+cell_type = 'Inflammation'
+
 # Iterate through pathways for cell type
 for (pathway in pathway_list) {
   
