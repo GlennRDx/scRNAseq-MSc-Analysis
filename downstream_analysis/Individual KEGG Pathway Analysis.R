@@ -170,7 +170,7 @@ pathway_heatmap <- function(df_list,
 
 # Example usage with KEGG pathway
 pathway_heatmap(df_list, 
-                pid = 'mmu04141', 
+                pid = 'mmu04972', 
                 scale_to_one = TRUE, 
                 remove_na_rows = TRUE, 
                 order_by_sum = TRUE,

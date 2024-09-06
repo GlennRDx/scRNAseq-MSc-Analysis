@@ -30,3 +30,15 @@ df_list = list(df_isc = df_isc,
                df_gob = df_gob,
                df_tuf = df_tuf,
                df_eec = df_eec)
+
+df_eil = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/upstream_analysis/crypt/differential_expression_scanpy/EEC/diff_exp_CD_vs_HFD_EEC (I_L).csv")
+df_eex = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/upstream_analysis/crypt/differential_expression_scanpy/EEC/diff_exp_CD_vs_HFD_EEC (X).csv")
+df_eed = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/upstream_analysis/crypt/differential_expression_scanpy/EEC/diff_exp_CD_vs_HFD_EEC (Delta).csv")
+df_ech = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/upstream_analysis/crypt/differential_expression_scanpy/EEC/diff_exp_CD_vs_HFD_EEC (EC).csv")
+df_eek = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/upstream_analysis/crypt/differential_expression_scanpy/EEC/diff_exp_CD_vs_HFD_EEC (K).csv")
+
+df_list = list(df_eil = df_eil,
+               df_eex = df_eex,
+               df_eed = df_eed,
+               df_ech = df_ech,
+               df_eek = df_eek)
