@@ -1,0 +1,60 @@
+# Install from terminal
+# sudo apt-get update
+# sudo apt-get install libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev libfribidi-dev libharfbuzz-dev libtiff-dev libxml2-dev pandoc
+
+# # regular packages
+# install.packages('pak')
+# library(pak)
+# pak('ggplot2')
+# pak('stringr')
+# pak('tools')
+# pak('ggridges')
+# pak('viridis')
+# pak('tidyverse')
+# pak('ggtext')
+# pak('dplyr')
+# pak('pheatmap')
+# pak('aPEAR')
+# 
+# # Install bioconductor
+# if (!require("BiocManager", quietly = TRUE))
+#   install.packages("BiocManager")
+# BiocManager::install(version = "3.19")
+# 
+# # bioconductor packages
+# BiocManager::install("clusterProfiler")
+# BiocManager::install("org.Mm.eg.db")
+# BiocManager::install("DOSE")
+# BiocManager::install("pathview")
+# BiocManager::install("enrichplot")
+# BiocManager::install("gage")
+# BiocManager::install("gageData")
+# BiocManager::install("KEGGREST")
+# BiocManager::install("AnnotationDbi", force = T)
+# BiocManager::install('EnhancedVolcano')
+# BiocManager::install('DESeq2')
+# BiocManager::install('biomaRt')
+
+# Load packages
+library(clusterProfiler)
+library(AnnotationDbi)
+library(org.Mm.eg.db)
+library(DOSE)
+library(pathview)
+library(dplyr)
+library(enrichplot)
+library(ggplot2)
+library(stringr)
+library(gage)
+library(gageData)
+library(tools)
+library(ggridges)
+library(viridis)
+library(tidyverse)
+library(KEGGREST)
+library(ggtext)
+library(pheatmap)
+library(aPEAR)
+library(EnhancedVolcano)
+library(DESeq2)
+library(biomaRt)
