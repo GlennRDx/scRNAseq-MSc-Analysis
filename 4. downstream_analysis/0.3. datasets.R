@@ -1,15 +1,15 @@
-# # Limma DGE datasets
-# lma_eec = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_EEC.csv")
-# lma_eep = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_EE_progenitor.csv")
-# lma_ent = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Enterocyte.csv")
-# lma_enp = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Enterocyte_progen.csv")
-# lma_gob = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Goblet_cell.csv")
-# lma_gop = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Goblet_progenitor.csv")
-# lma_isc = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_ISC.csv")
-# lma_pan = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Paneth_cell.csv")
-# lma_pap = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Paneth_progenitor.csv")
-# lma_tuf = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Tuft_cell.csv")
-# lma_tup = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Tuft_progenitor.csv")
+# Limma DGE datasets
+lma_eec = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_EEC.csv")
+lma_eep = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_EE_progenitor.csv")
+lma_ent = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Enterocyte.csv")
+lma_enp = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Enterocyte_progen.csv")
+lma_gob = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Goblet_cell.csv")
+lma_gop = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Goblet_progenitor.csv")
+lma_isc = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_ISC.csv")
+lma_pan = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Paneth_cell.csv")
+lma_pap = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Paneth_progenitor.csv")
+lma_tuf = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Tuft_cell.csv")
+lma_tup = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_limma/diff_exp_CD_vs_HFD_Tuft_progenitor.csv")
 
 lma_list = list(lma_isc = lma_isc,
                lma_enp = lma_enp,
@@ -39,17 +39,17 @@ dsq_list = list(dsq_isc = dsq_isc,
                dsq_eec = dsq_eec)
 
 # Scanpy DGE datasets
-# spy_eec = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_EEC.csv")
-# spy_eep = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_EEC Progenitor.csv")
-# spy_ent = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Enterocyte.csv")
-# spy_enp = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Enterocyte Progenitor.csv")
-# spy_gob = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Goblet.csv")
-# spy_gop = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Goblet Progenitor.csv")
-# spy_isc = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_ISC.csv")
-# spy_pan = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Paneth.csv")
-# spy_pap = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Paneth Progenitor.csv")
-# spy_tuf = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Tuft.csv")
-# spy_tup = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Tuft Progenitor.csv")
+spy_eec = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_EEC.csv")
+spy_eep = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_EEC Progenitor.csv")
+spy_ent = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Enterocyte.csv")
+spy_enp = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Enterocyte Progenitor.csv")
+spy_gob = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Goblet.csv")
+spy_gop = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Goblet Progenitor.csv")
+spy_isc = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_ISC.csv")
+spy_pan = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Paneth.csv")
+spy_pap = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Paneth Progenitor.csv")
+spy_tuf = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Tuft.csv")
+spy_tup = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/diff_exp_CD_vs_HFD_Tuft Progenitor.csv")
 
 spy_list = list(spy_isc = spy_isc,
                spy_enp = spy_enp,

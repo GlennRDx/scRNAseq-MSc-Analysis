@@ -10,8 +10,11 @@ run_deseq2 <- function(cell_type) {
   
   # Read data
   counts <- read.csv(count_matrix_path, row.names=1)
+  counts <- counts[, colSums(counts) > 0]
   counts <- t(counts)
   counts <- round(counts)
+
+  
   metadata <- read.csv(metadata_path, row.names=1)
   
   # Ensure Sample is a factor
@@ -42,12 +45,13 @@ run_deseq2 <- function(cell_type) {
   
   # Rename columns
   colnames(res_df)[colnames(res_df) == "gene_symbol"] <- "X"
-  colnames(res_df)[colnames(res_df) == "log2FoldChange"] <- "LogFC"
+  colnames(res_df)[colnames(res_df) == "log2FoldChange"] <- "logFC"
   colnames(res_df)[colnames(res_df) == "pvalue"] <- "P.Value"
   colnames(res_df)[colnames(res_df) == "padj"] <- "adj.P.Val"
+  res_df$logFC <- as.numeric(as.character(res_df$logFC))
   
   # Reorder columns
-  res_df <- res_df[, c("X", "baseMean", "LogFC", "lfcSE", "stat", "P.Value", "adj.P.Val")]
+  res_df <- res_df[, c("X", "baseMean", "logFC", "lfcSE", "stat", "P.Value", "adj.P.Val")]
   
   # Order by adjusted p-value
   res_df <- res_df[order(res_df$adj.P.Val), ]
