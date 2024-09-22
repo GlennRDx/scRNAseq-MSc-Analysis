@@ -1,5 +1,5 @@
 # Loop through the list and create volcano plots
-df_list = spy_list
+df_list = spy_eec_list
 
 for (name in names(df_list)) {
   

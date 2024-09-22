@@ -58,11 +58,11 @@ spy_list = list(spy_isc = spy_isc,
                spy_tuf = spy_tuf,
                spy_eec = spy_eec)
 
-spy_eil = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/EEC/diff_exp_CD_vs_HFD_EEC (I_L).csv")
-spy_eex = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/EEC/diff_exp_CD_vs_HFD_EEC (X).csv")
-spy_eed = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/EEC/diff_exp_CD_vs_HFD_EEC (Delta).csv")
-spy_ech = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/EEC/diff_exp_CD_vs_HFD_EEC (EC).csv")
-spy_eek = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/EEC/diff_exp_CD_vs_HFD_EEC (K).csv")
+spy_eil = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/EEC_subpopulations/diff_exp_CD_vs_HFD_EEC (I_L).csv")
+spy_eex = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/EEC_subpopulations/diff_exp_CD_vs_HFD_EEC (X).csv")
+spy_eed = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/EEC_subpopulations/diff_exp_CD_vs_HFD_EEC (Delta).csv")
+spy_ech = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/EEC_subpopulations/diff_exp_CD_vs_HFD_EEC (EC).csv")
+spy_eek = read.csv("/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/3. upstream_analysis/crypt/differential_expression_scanpy/EEC_subpopulations/diff_exp_CD_vs_HFD_EEC (K).csv")
 
 spy_eec_list = list(spy_eil = spy_eil,
                     spy_eex = spy_eex,
