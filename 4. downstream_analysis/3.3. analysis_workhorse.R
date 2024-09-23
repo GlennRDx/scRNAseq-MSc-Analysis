@@ -53,7 +53,7 @@ for (pathway in pathway_list) {
   dir.create(folder_path, recursive = TRUE, showWarnings = FALSE)
   
   # Individual specific pathway analysis - Gene Heatmap
-  pathway_heatmap(df_list, 
+  pathway_heatmap(spy_list, 
                   pid = pathway, 
                   scale_to_one = TRUE, 
                   remove_na_rows = TRUE, 

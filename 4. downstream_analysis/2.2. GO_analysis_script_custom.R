@@ -1,34 +1,36 @@
-# Load necessary libraries
-library(org.Mm.eg.db)
-library(GO.db)
-library(gage)
+# Load required libraries
 library(AnnotationDbi)
+library(org.Mm.eg.db)
+library(gage)
+library(GO.db)
 library(dplyr)
 library(ggplot2)
-library(stringdist)
-library(dendextend)
+library(scales)
 
-# Load necessary data
+# Load gene set data (make sure these datasets are available in your workspace)
 data(go.sets.mm)
 data(go.subs.mm)
 
-# Function to retrieve gene list for GO or KEGG terms
-get_gene_list <- function(identifier, type) {
-  go_id <- strsplit(identifier, " ")[[1]][1]
-  
+# Function to check if the GOTERM object is available
+check_goterm <- function() {
+  if (!exists("GOTERM")) {
+    if (!requireNamespace("GO.db", quietly = TRUE)) {
+      stop("GO.db package is required but not installed. Please install it using BiocManager::install('GO.db')")
+    }
+    GOTERM <<- GO.db::GOTERM
+  }
+}
+
+# Function to retrieve gene lists for GO terms
+get_gene_list <- function(identifier, type = "GO") {
   if (type == "GO") {
+    print(identifier)
     genes <- AnnotationDbi::select(org.Mm.eg.db, 
                                    keytype = "GOALL", 
-                                   keys = go_id, 
-                                   columns = c("ENSEMBL", "SYMBOL"))
-  } else if (type == "KEGG") {
-    kegg_genes <- gsub("mmu:", "", keggLink("mmu", go_id))
-    genes <- AnnotationDbi::select(org.Mm.eg.db, 
-                                   keytype = "ENTREZID", 
-                                   keys = kegg_genes, 
+                                   keys = identifier, 
                                    columns = c("ENSEMBL", "SYMBOL"))
   } else {
-    stop("Invalid type. Use 'GO' or 'KEGG'.")
+    stop("Invalid type. Currently only 'GO' is supported.")
   }
   return(genes)
 }
@@ -43,6 +45,7 @@ perform_go_enrichment <- function(df, ont) {
   names(foldchanges) <- gene_entrez_ids
   foldchanges <- na.omit(foldchanges)
   
+  # Select GO sets based on ontology
   if (ont == "BP") {
     gosets <- go.sets.mm[go.subs.mm$BP]
   } else if (ont == "CC") {
@@ -57,7 +60,7 @@ perform_go_enrichment <- function(df, ont) {
   return(gores)
 }
 
-# Function to extract top GO terms
+# Function to extract top GO terms from the results
 extract_top_go_terms <- function(gores, n) {
   up <- data.frame(id = rownames(gores$greater), gores$greater) %>%
     tibble::as_tibble() %>%
@@ -75,11 +78,11 @@ extract_top_go_terms <- function(gores, n) {
   return(rbind(up, down))
 }
 
-# Function to calculate gene ratio for GO term
+# Function to calculate gene ratio for a given GO term
 calculate_gene_ratio <- function(go_id, df) {
   go_id <- strsplit(go_id, " ")[[1]][1]
   
-  if (!(go_id %in% keys(GOTERM))) {
+  if (!(go_id %in% AnnotationDbi::keys(GOTERM))) {
     message("Invalid GO term: ", go_id)
     return(NA)
   }
@@ -87,7 +90,10 @@ calculate_gene_ratio <- function(go_id, df) {
   significant_genes <- df$X[df$adj.P.Val < 0.05]
   
   go_genes <- tryCatch({
-    get_gene_list(go_id, "GO")
+    AnnotationDbi::select(org.Mm.eg.db, 
+                          keys = go_id, 
+                          columns = c("SYMBOL"), 
+                          keytype = "GOALL")
   }, error = function(e) {
     message("Error retrieving genes for GO term: ", go_id)
     return(NULL)
@@ -102,7 +108,12 @@ calculate_gene_ratio <- function(go_id, df) {
   return(gene_ratio)
 }
 
-# Function to create a combined dataframe with GO terms and gene ratios
+# Function to count genes in each GO term
+count_genes <- function(gene_list) {
+  return(length(unique(unlist(gene_list))))
+}
+
+# Function to create a combined dataframe with GO terms, gene ratios, and gene lists
 create_combined_df <- function(df, ont_list, n) {
   result_df <- data.frame()
   
@@ -110,97 +121,174 @@ create_combined_df <- function(df, ont_list, n) {
     gores <- perform_go_enrichment(df, ont)
     top_terms <- extract_top_go_terms(gores, n)
     
+    # Calculate gene ratio and retrieve associated gene lists for each GO term
     top_terms$gene_ratio <- sapply(top_terms$id, calculate_gene_ratio, df = df)
     top_terms$ont <- ont
     
+    # Split the 'id' column into 'id' and 'name'
+    top_terms$name <- sub("^\\S+\\s", "", top_terms$id)
+    top_terms$id <- substr(top_terms$id, 1, 10)
+    
+    # Retrieve GO term names from GOTERM
     top_terms$Term <- sapply(top_terms$id, function(id) {
-      tryCatch(Term(GOTERM[[id]]), error = function(e) id)
+      tryCatch(AnnotationDbi::Term(GOTERM[[id]]), error = function(e) id)
     })
     
-    # Add gene_list column
-    top_terms$gene_list <- sapply(top_terms$id, function(id) {
-      go_genes <- get_gene_list(id, "GO")
-      significant_genes <- df$X[df$adj.P.Val < 0.05]
-      intersection <- intersect(significant_genes, unique(go_genes$SYMBOL))
-      paste(intersection, collapse = ", ")
+    # Retrieve and store gene lists for each GO term
+    top_terms$genes <- lapply(top_terms$id, function(go_id) {
+      gene_data <- tryCatch(get_gene_list(go_id, "GO"), error = function(e) NULL)
+      if (!is.null(gene_data)) return(unique(gene_data$SYMBOL)) else return(NA)
     })
+    
+    # Count the number of genes in each GO term
+    top_terms$gene_count <- sapply(top_terms$genes, count_genes)
     
     result_df <- rbind(result_df, top_terms)
   }
   
-  # Remove rows where gene_ratio is NA
-  result_df <- result_df[!is.na(result_df$gene_ratio), ]
+  # Remove rows where gene_ratio or genes are NA
+  result_df <- result_df[!is.na(result_df$gene_ratio) & !sapply(result_df$genes, is.null), ]
   
   return(result_df)
 }
 
-# Function to cluster GO terms
-cluster_go_terms <- function(result_df, n_clusters = 5) {
-  # Create a matrix of gene lists
-  gene_lists <- strsplit(result_df$gene_list, ", ")
-  names(gene_lists) <- result_df$id
-  
-  # Calculate Jaccard similarity matrix
-  jaccard_matrix <- matrix(0, nrow = length(gene_lists), ncol = length(gene_lists))
-  rownames(jaccard_matrix) <- names(gene_lists)
-  colnames(jaccard_matrix) <- names(gene_lists)
-  
-  for (i in 1:length(gene_lists)) {
-    for (j in 1:length(gene_lists)) {
-      jaccard_matrix[i, j] <- stringdist::stringsim(gene_lists[[i]], gene_lists[[j]], method = "jaccard")
-    }
-  }
-  
-  # Convert similarity matrix to distance matrix
-  dist_matrix <- as.dist(1 - jaccard_matrix)
-  
-  # Perform hierarchical clustering
-  hc <- hclust(dist_matrix, method = "complete")
-  
-  # Cut the dendrogram to get clusters
-  clusters <- cutree(hc, k = n_clusters)
-  
-  # Add cluster information to the result dataframe
-  result_df$cluster <- clusters[match(result_df$id, names(clusters))]
-  
-  return(result_df)
+# Function to save enrichment results
+save_enrichment_results <- function(results, filename) {
+  saveRDS(results, file = filename)
 }
 
-# Function to plot GO enrichment results
-plot_go_enrichment <- function(df) {
-  ggplot(df, aes(x = gene_ratio, y = reorder(Term, gene_ratio))) +
-    geom_point(aes(color = factor(cluster), size = -log10(p.val))) +
-    facet_grid(ont ~ direction, scales = "free_y", space = "free_y") +
-    scale_color_discrete(name = "Cluster") +
-    scale_size_continuous(range = c(2, 8)) +
-    theme_bw() +
-    theme(axis.text.y = element_text(size = 8)) +
-    labs(x = "Gene Ratio", y = "GO Term", size = "-log10(p-value)")
+# Function to load enrichment results
+load_enrichment_results <- function(filename) {
+  readRDS(file = filename)
 }
 
-# Main analysis function
-perform_enrichment_analysis <- function(df, ont_list = c("BP", "CC", "MF"), n = 5, n_clusters = 5) {
+# Main function for performing GO enrichment analysis with gene list storage and file saving
+perform_and_save_enrichment_analysis <- function(df, name, save_dir, ont_list = c("BP", "CC", "MF"), n = 5) {
+  # Check if GOTERM is available
+  check_goterm()
+  
   # Perform the combined analysis
   result_df <- create_combined_df(df, ont_list, n)
   
-  # Cluster GO terms
-  result_df <- cluster_go_terms(result_df, n_clusters)
+  # Create filename
+  filename <- file.path(save_dir, paste0(name, "_enrichment_results.rds"))
   
-  # Create the plot
-  go_plot <- plot_go_enrichment(result_df)
+  # Save results
+  save_enrichment_results(result_df, filename)
   
-  return(list(data = result_df, plot = go_plot))
+  return(result_df)
 }
 
-# Run the analysis with a specific dataframe (e.g., spy_isc) and customizable top n terms
-# Assuming spy_isc is your dataframe with differential expression results
-# spy_isc <- read.csv("path/to/your/differential_expression_results.csv")
+# Function to process all datasets in spy_list
+process_all_datasets <- function(spy_list, save_dir, ont_list = c("BP", "CC", "MF"), n = 5) {
+  # Create save directory if it doesn't exist
+  if (!dir.exists(save_dir)) {
+    dir.create(save_dir, recursive = TRUE)
+  }
+  
+  # Process each dataset
+  results_list <- lapply(names(spy_list), function(name) {
+    cat("Processing", name, "...\n")
+    df <- spy_list[[name]]
+    perform_and_save_enrichment_analysis(df, name, save_dir, ont_list, n)
+  })
+  
+  names(results_list) <- names(spy_list)
+  return(results_list)
+}
 
-results <- perform_enrichment_analysis(spy_isc, n = 10, n_clusters = 5)  # Modify n and n_clusters as needed
+# Clustering function
+cluster_go_terms <- function(go_data, h = 0.9) {
+  # Extract GO terms and their associated gene lists
+  go_terms <- go_data$id
+  genes_list <- go_data$genes
+  
+  # Filter out GO terms with no genes
+  valid_indices <- sapply(genes_list, function(gene_data) !is.null(gene_data) && length(gene_data) > 0)
+  valid_go_terms <- go_terms[valid_indices]
+  valid_genes_list <- genes_list[valid_indices]
+  
+  # If no valid GO terms, return an empty dataframe
+  if (length(valid_go_terms) == 0) {
+    return(data.frame(GO_id = character(0), cluster = integer(0)))
+  }
+  
+  # Define Jaccard similarity function
+  jaccard_similarity <- function(set1, set2) {
+    intersection <- length(intersect(set1, set2))
+    union <- length(union(set1, set2))
+    return(intersection / union)
+  }
+  
+  # Initialize similarity matrix
+  n <- length(valid_go_terms)
+  similarity_matrix <- matrix(0, nrow = n, ncol = n, dimnames = list(valid_go_terms, valid_go_terms))
+  
+  # Calculate pairwise Jaccard similarities
+  for (i in 1:n) {
+    for (j in i:n) {
+      sim <- jaccard_similarity(valid_genes_list[[i]], valid_genes_list[[j]])
+      similarity_matrix[i, j] <- sim
+      similarity_matrix[j, i] <- sim  # Symmetric matrix
+    }
+  }
+  
+  # Convert similarity matrix to distance matrix (1 - similarity)
+  distance_matrix <- 1 - similarity_matrix
+  
+  # Perform hierarchical clustering
+  hc <- hclust(as.dist(distance_matrix), method = "average")
+  
+  # Cut the dendrogram into clusters
+  clusters <- cutree(hc, h = h)
+  
+  # Return dataframe with valid GO terms and their clusters
+  result_df <- data.frame(GO_id = valid_go_terms, cluster = clusters)
+  
+  return(result_df)
+}
 
-# Print the plot
-print(results$plot)
+# Plotting function
+plot_go_enrichment <- function(df) {
+  # Generate a color palette based on the number of clusters
+  n_clusters <- length(unique(df$cluster))
+  color_palette <- scales::hue_pal()(n_clusters)
+  
+  # Create labels
+  df$label <- paste(df$id, df$Term, formatC(df$p.val, format = "e", digits = 2), sep = ", ")
+  
+  ggplot(df, aes(x = gene_ratio, y = reorder(label, gene_ratio))) +
+    geom_point(aes(color = factor(cluster), size = gene_count)) +
+    facet_grid(ont ~ direction, scales = "free_y", space = "free_y") +
+    scale_color_manual(values = color_palette) +
+    scale_size_continuous(range = c(2, 10)) +
+    theme_bw() +
+    theme(axis.text.y = element_text(size = 8)) +
+    labs(x = "Gene Ratio", y = "GO Term", color = "Cluster", size = "Gene Count")
+}
 
-# The clustered data is available in results$data
-# You can write this to a file for further analysis if needed:
-# write.csv(results$data, "clustered_go_terms.csv", row.names = FALSE)
+# Example usage:
+# Define the save directory
+save_dir <- "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/4. downstream_analysis/GO_results/crypt/GO_enrichment_files"
+
+# Load your spy_list (make sure to run the code that creates spy_list first)
+# spy_list should be created as shown in your previous message
+
+# Process all datasets
+all_results <- process_all_datasets(spy_list, save_dir, n = 10)
+
+# Now you can work with individual results, e.g.:
+# enrichment_results_isc <- all_results$spy_isc
+
+# Or load a specific result file later:
+# enrichment_results_isc <- load_enrichment_results(file.path(save_dir, "spy_isc_enrichment_results.rds"))
+
+# Perform clustering on a specific result:
+# clustered_results_isc <- cluster_go_terms(enrichment_results_isc, h = 0.9)
+
+# Merge clustering results with enrichment results:
+# final_results_isc <- merge(enrichment_results_isc, clustered_results_isc, by.x = "id", by.y = "GO_id", all.x = TRUE)
+
+# Create and display the plot:
+# go_plot_isc <- plot_go_enrichment(final_results_isc)
+# print(go_plot_isc)

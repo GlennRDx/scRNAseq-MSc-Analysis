@@ -1,8 +1,39 @@
-# Load necessary data
-data(go.sets.mm)
-data(go.subs.mm)
+get_kegg_pathway_name <- function(pid) {
+  pathway_info <- keggGet(pid)
+  pathway_name <- pathway_info[[1]]$NAME
+  pathway_name <- gsub(" - Mus musculus \\(house mouse\\)", "", pathway_name)
+  return(pathway_name)
+}
 
+# Read and parse the KEGG category file
+parse_kegg_categories <- function(filepath) {
+  lines <- readLines(filepath)
+  categories <- data.frame(Major = character(), Sub = character(), Pathway = character(), stringsAsFactors = FALSE)
+  
+  current_major <- NULL
+  current_sub <- NULL
+  
+  for (line in lines) {
+    if (startsWith(line, "MAJOR_")) {
+      current_major <- substr(line, 7, nchar(line))  # Remove "MAJOR_" prefix
+      current_sub <- NULL  # Reset subcategory
+    } else if (grepl("^[0-9]{5}", line)) {
+      pathway_id <- paste0("mmu", substr(line, 1, 5))
+      categories <- rbind(categories, data.frame(Major = current_major, Sub = ifelse(is.null(current_sub), "No_Subcategory", current_sub), Pathway = pathway_id))
+    } else {
+      current_sub <- line
+    }
+  }
+  
+  return(categories)
+}
+cats = parse_kegg_categories('/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/4. downstream_analysis/kegg_categories')
+
+# Find all genes associated with a KEGG pathway
 get_gene_list <- function(identifier, type) {
+  library(org.Mm.eg.db)
+  library(KEGGREST)
+  library(AnnotationDbi)
   if (type == "GO") {
     genes <- AnnotationDbi::select(org.Mm.eg.db, 
                                    keytype = "GOALL", 
@@ -20,7 +51,172 @@ get_gene_list <- function(identifier, type) {
   return(genes)
 }
 
-perform_go_enrichment <- function(df, ont) {
+# Define the function to process a list of data frames
+process_df_list <- function(df_list, kegg_pathway, pval_threshold = 0.05) {
+  # Initialize empty data frames for p-values and logFC values
+  pval_df <- data.frame()
+  logFC_df <- data.frame()
+  
+  for (i in seq_along(df_list)) {
+    df_name <- names(df_list)[i]
+    data <- df_list[[i]]
+    
+    # Generate the pathway report for the current data frame
+    intersecting_genes <- pathway_report(data, kegg_pathway, pval_threshold)
+    
+    # Create temporary data frames for p-values and logFC values
+    temp_pval_df <- data.frame(gene = intersecting_genes$symbol, p.val = intersecting_genes$p.val)
+    temp_logFC_df <- data.frame(gene = intersecting_genes$symbol, logFC = intersecting_genes$logFC)
+    
+    # Rename the columns to reflect the current data frame
+    colnames(temp_pval_df)[2] <- df_name
+    colnames(temp_logFC_df)[2] <- df_name
+    
+    # Merge the temporary data frames with the main data frames
+    if (nrow(pval_df) == 0) {
+      pval_df <- temp_pval_df
+      logFC_df <- temp_logFC_df
+    } else {
+      pval_df <- merge(pval_df, temp_pval_df, by = "gene", all = TRUE)
+      logFC_df <- merge(logFC_df, temp_logFC_df, by = "gene", all = TRUE)
+    }
+  }
+  
+  return(list(pval_df = pval_df, logFC_df = logFC_df))
+}
+
+
+# Define the function to count number of KEGG pathways associated with mmu genes
+count_kegg_pathways <- function(gene_symbol) {
+  # Convert the gene symbol to an Entrez gene ID
+  entrez_id <- mapIds(org.Mm.eg.db, keys = gene_symbol, column = "ENTREZID", keytype = "SYMBOL", multiVals = "first")
+  
+  if (is.na(entrez_id)) {
+    stop("Gene symbol not found in Entrez database.")
+  }
+  
+  # Create the KEGG gene identifier
+  kegg_gene_id <- paste0("mmu:", entrez_id)
+  
+  # Retrieve the KEGG pathways for the gene
+  pathways <- keggLink("pathway", kegg_gene_id)
+  
+  # Count the number of unique pathways
+  num_pathways <- length(unique(pathways))
+  
+  return(num_pathways)
+}
+
+process_files <- function(input_directory, output_directory, p_val = 0.05, lfc = 0.1, export_pathway_files = TRUE, cats) {
+  # List all CSV files in the input directory
+  file_list <- list.files(path = input_directory, pattern = "\\.csv$", full.names = TRUE)
+  
+  # Loop over each file in the file list
+  for (file_path in file_list) {
+    # Extract the file name and cell type
+    file_name <- basename(file_path)
+    parts <- strsplit(file_name, "_")[[1]]
+    cell_type <- paste(parts[6:length(parts)], collapse = "_")
+    cell_type <- sub("\\.csv$", "", cell_type) # Remove file extension '.csv'
+    cell_type <- gsub("_", " ", cell_type) # Replace underscores with spaces
+    
+    print(file_name)
+    print(cell_type)
+    
+    # Read the CSV file into a data frame
+    df <- read.csv(file_path)
+    
+    # Run the analyze_pathways function
+    setwd(output_directory)
+    analyze_pathways(df, cell_type = cell_type, p_val = p_val, lfc = lfc, export_pathway_files = export_pathway_files, cats = cats)
+  }
+}
+
+
+########################## Pathway report function #############################
+
+# Reports pathway metrics from a given deg file
+pathway_report <- function(data, kegg_pathway, pval_threshold = 0.05) {
+  # Load necessary libraries
+  library(dplyr)
+  library(ggplot2)  # Library for plotting
+  
+  # Ensure that the required columns are present in the data
+  if (!all(c("X", "adj.P.Val", "abs.log2FC") %in% colnames(data))) {
+    stop("The data must contain 'X', 'adj.P.Val', and 'abs.log2FC' columns.")
+  }
+  
+  # Get the list of genes for the given KEGG pathway
+  gene_list <- get_gene_list(kegg_pathway, "KEGG")
+  
+  # Ensure that the SYMBOL column is present in the gene_list
+  if (!"SYMBOL" %in% colnames(gene_list)) {
+    stop("The gene list must contain a 'SYMBOL' column.")
+  }
+  
+  # Extract the gene symbols from the gene_list
+  kegg_genes <- gene_list$SYMBOL
+  
+  # Find the intersecting genes
+  intersecting_genes <- data %>% 
+    filter(X %in% kegg_genes) %>% 
+    select(symbol = X, p.val = adj.P.Val, logFC = abs.log2FC) %>% 
+    arrange(p.val)
+  
+  # Calculate the number of significant genes
+  significant_genes <- intersecting_genes %>% 
+    filter(p.val < pval_threshold)
+  
+  # Calculate the gene ratio
+  total_intersecting <- nrow(intersecting_genes)
+  total_significant <- nrow(significant_genes)
+  
+  gene_ratio_decimal <- if (total_intersecting > 0) {
+    total_significant / total_intersecting
+  } else {
+    NA  # Avoid division by zero
+  }
+  
+  gene_ratio_fraction <- if (!is.na(gene_ratio_decimal) && total_intersecting > 0) {
+    paste(total_significant, total_intersecting, sep = "/")
+  } else {
+    NA  # Avoid division by zero
+  }
+  
+  # Calculate the average logFC of the significant genes
+  avg_logFC <- if (total_significant > 0) {
+    mean(significant_genes$logFC, na.rm = TRUE)
+  } else {
+    NA  # If no significant genes, average is NA
+  }
+  
+  # Create a distribution plot of the logFC for significant genes
+  if (total_significant > 0) {
+    p <- ggplot(significant_genes, aes(x = logFC)) +
+      geom_histogram(binwidth = 0.05, fill = "blue", color = "black", alpha = 0.7) +
+      labs(title = "Distribution of logFC for Significant Genes",
+           x = "logFC",
+           y = "Count") +
+      theme_minimal()
+    
+    print(p)  # Print the plot to the RStudio Plots pane
+  }
+  
+  # Return results as a list
+  return(list(
+    intersecting_genes = intersecting_genes, 
+    gene_ratio_decimal = gene_ratio_decimal,
+    gene_ratio_fraction = gene_ratio_fraction,
+    avg_logFC = avg_logFC
+  ))
+}
+
+# Look at KEGG pathway graph of specific pathway
+specific_pathway_analysis = function(df, pid, output_directory = '/home/', p_val = 0.05){
+  owd = getwd()
+  setwd(output_directory)
+  df <- df[df$adj.P.Val <= p_val, ]
+  
   # Extract gene symbols
   gene_symbols <- df$X
   
@@ -33,114 +229,13 @@ perform_go_enrichment <- function(df, ont) {
   names(foldchanges) <- gene_entrez_ids
   foldchanges <- na.omit(foldchanges)
   
-  # Perform GO enrichment analysis
-  if (ont == "BP") {
-    gosets <- go.sets.mm[go.subs.mm$BP]
-  } else if (ont == "CC") {
-    gosets <- go.sets.mm[go.subs.mm$CC]
-  } else if (ont == "MF") {
-    gosets <- go.sets.mm[go.subs.mm$MF]
-  } else {
-    stop("Invalid ontology. Use 'BP', 'CC', or 'MF'.")
-  }
-  
-  gores <- gage(exprs = foldchanges, gsets = gosets, same.dir = TRUE)
-  return(gores)
+  pathview(gene.data = foldchanges, 
+           pathway.id = pid, 
+           species = 'mmu', 
+           expand.node = T,
+           kegg.native = T,
+           low = list(gene = "red"), 
+           mid =list(gene = "gray"), 
+           high = list(gene = "green"))
+  setwd(owd)
 }
-
-extract_top_go_terms <- function(gores, n = 5) {
-  up <- data.frame(id = rownames(gores$greater), gores$greater) %>%
-    tibble::as_tibble() %>%
-    dplyr::arrange(p.val) %>%
-    dplyr::slice_head(n = n)
-  
-  down <- data.frame(id = rownames(gores$less), gores$less) %>%
-    tibble::as_tibble() %>%
-    dplyr::arrange(p.val) %>%
-    dplyr::slice_head(n = n)
-  
-  up$direction <- "Up"
-  down$direction <- "Down"
-  
-  return(rbind(up, down))
-}
-
-calculate_gene_ratio <- function(go_id, df) {
-  # Create a list of genes in the dataframe where adj.P.Val is less than 0.05
-  significant_genes <- df$X[df$adj.P.Val < 0.05]
-  
-  first_10_chars <- substr(go_id, 1, 10)
-  print(first_10_chars)
-  
-  # Get the list of genes in the GO term
-  go_genes <- get_gene_list(first_10_chars, "GO")
-  go_gene_symbols <- unique(go_genes$SYMBOL)
-  
-  # Calculate the gene ratio
-  intersection <- intersect(significant_genes, go_gene_symbols)
-  gene_ratio <- length(intersection) / length(go_gene_symbols)
-  
-  print(gene_ratio)
-  
-  return(gene_ratio)
-}
-
-create_combined_df <- function(df, ont_list = c("BP", "CC", "MF"), total_terms = 30) {
-  result_df <- data.frame()
-  terms_per_ont <- ceiling(total_terms / length(ont_list) / 2)  # Divide by 2 for up and down regulation
-  
-  for (ont in ont_list) {
-    gores <- perform_go_enrichment(df, ont)
-    top_terms <- extract_top_go_terms(gores, n = terms_per_ont * 2)  # Extract more terms than needed
-    
-    valid_terms <- data.frame()
-    for (i in 1:nrow(top_terms)) {
-      gene_ratio <- tryCatch({
-        calculate_gene_ratio(top_terms$id[i], df)
-      }, error = function(e) {
-        return(NA)
-      })
-      
-      if (!is.na(gene_ratio)) {
-        top_terms$gene_ratio[i] <- gene_ratio
-        valid_terms <- rbind(valid_terms, top_terms[i, ])
-      }
-      
-      if (nrow(valid_terms) == terms_per_ont * 2) break  # Stop if we have enough valid terms
-    }
-    
-    if (nrow(valid_terms) < terms_per_ont * 2) {
-      warning(paste("Not enough valid GO terms found for ontology", ont, ". Only", nrow(valid_terms), "terms included."))
-    }
-    
-    valid_terms$ont <- ont
-    
-    # Get GO term names
-    valid_terms$Term <- sapply(valid_terms$id, function(id) {
-      tryCatch(
-        Term(GOTERM[[id]]),
-        error = function(e) id
-      )
-    })
-    
-    result_df <- rbind(result_df, valid_terms)
-  }
-  
-  return(result_df)
-}
-
-plot_go_enrichment <- function(df) {
-  ggplot(df, aes(x = gene_ratio, y = reorder(Term, gene_ratio))) +
-    geom_point(aes(color = direction, size = -log10(p.val))) +
-    facet_grid(ont ~ direction, scales = "free_y", space = "free_y") +
-    scale_color_manual(values = c("Up" = "red", "Down" = "blue")) +
-    scale_size_continuous(range = c(2, 8)) +
-    theme_bw() +
-    theme(axis.text.y = element_text(size = 8)) +
-    labs(x = "Gene Ratio", y = "GO Term", color = "Direction", size = "-log10(p-value)")
-}
-
-# Run the analysis
-result_df <- create_combined_df(spy_isc)
-go_plot <- plot_go_enrichment(result_df)
-print(go_plot)
