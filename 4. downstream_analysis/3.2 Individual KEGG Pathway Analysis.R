@@ -5,7 +5,10 @@ pathway_heatmap <- function(df_list,
                             order_by_sum = TRUE, 
                             custom_gene_list = NULL,
                             output_dir = ".",
-                            file_name = "heatmap.jpg") {
+                            file_name = "heatmap.jpg",
+                            fontsize = 10,
+                            w = 1500,
+                            h = 2200) {
   
   pathway_name = get_kegg_pathway_name(pid)
   
@@ -143,7 +146,7 @@ pathway_heatmap <- function(df_list,
   file_path <- file.path(output_dir, file_name)
   
   # Open a JPEG device
-  png(filename = file_path, width = 1500, height = 2200, res = 200)
+  png(filename = file_path, width = w, height = h, res = 200)
   
   # Plot the heatmap
   pheatmap(logFC_clean, 
@@ -154,7 +157,7 @@ pathway_heatmap <- function(df_list,
            color = color_palette, 
            breaks = breaks,
            border_color = NA,
-           fontsize = 10,
+           fontsize = fontsize,
            labels_col = colnames(logFC_clean))  # Use the modified column names
   
   # Close the JPEG device
@@ -168,14 +171,18 @@ pathway_heatmap <- function(df_list,
 # genes <- unique(unlist(lapply(df_list, function(df) df$X)))
 # hsp_genes <- genes[grepl("^hsp", genes, ignore.case = TRUE)]
 
+pid = 'mmu04520'
+
 # Example usage with KEGG pathway
-pathway_heatmap(df_list, 
-                pid = 'mmu04972', 
+pathway_heatmap(spy_list, 
+                pid = pid, 
                 scale_to_one = TRUE, 
                 remove_na_rows = TRUE, 
                 order_by_sum = TRUE,
-                output_dir = "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/crypt/Individual_Pathway_Analysis/",
-                file_name = "heatmap.png")
+                output_dir = "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/4. downstream_analysis/KEGG_Results/crypt/Individual_Pathway_Analysis",
+                file_name = paste0(pid, " - ", get_kegg_pathway_name(pid = pid), ".png"),
+                fontsize = 16,
+                w = 2400)
 
 
 # pathway_heatmap(df_list, custom_gene_list = hsp_genes, scale_to_one = T, remove_na_rows = T, order_by_sum = T)

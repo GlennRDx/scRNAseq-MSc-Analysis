@@ -24,8 +24,8 @@ perform_GO_enrichment <- function(df, ONTOLOGY = NULL, orgdb = org.Mm.eg.db, sho
   set.seed(1)
   enrich <- gseGO(geneList = geneList, OrgDb = orgdb, ont = ONTOLOGY, eps = 0, nPermSimple = nPermSimple)
   
-  # Extract the top 50 GO terms by p-value
-  top50_go_terms <- head(enrich@result[order(enrich@result$pvalue), ], 50)
+  # Extract the top n GO terms by p-value
+  top50_go_terms <- head(enrich@result[order(enrich@result$pvalue), ], showCategory)
   
   # Print the top 50 GO terms
   print(top50_go_terms)
@@ -36,7 +36,7 @@ perform_GO_enrichment <- function(df, ONTOLOGY = NULL, orgdb = org.Mm.eg.db, sho
     facet_grid(. ~ .sign) +
     theme(axis.text.y = element_text(size = 8), 
           plot.title = element_text(size = 14), 
-          legend.text = element_text(size = 10),
+          legend.text = element_text(size = 15),
           legend.title = element_text(size = 10),
           axis.title.x = element_text(size = 10),
           axis.title.y = element_text(size = 10)) +
@@ -48,16 +48,20 @@ perform_GO_enrichment <- function(df, ONTOLOGY = NULL, orgdb = org.Mm.eg.db, sho
   set.seed(1)
   settings = aPEAR.methods
   settings$minClusterSize = 3
-  enrichnet = enrichmentNetwork(enrich@result, 
+  enrichnet = enrichmentNetwork(enrich@result,
                     drawEllipses = TRUE,
-                    repelLabels = T, 
+                    repelLabels = T,
                     outerCutoff = 0.6, # 0.5 Decreasing this value results in greater connectivity between the nodes in different clusters
-                    innerCutoff = 0.005, # 0.1 Decreasing this value results in greater connectivity within the nodes in the same cluster.
-                    fontSize = 4,
-                    
+                    innerCutoff = 0.1, # 0.1 Decreasing this value results in greater connectivity within the nodes in the same cluster.
+                    fontSize = 6,
+
                     )
   print(enrichnet)
+  
+  emapplot(enrich)
+  
+  
   return(list(enrich = enrich, enrichnet = enrichnet))
 }
 
-enrichnet = perform_GO_enrichment(df = spy_ent, ONTOLOGY = 'BP')
+enrichnet = perform_GO_enrichment(df = spy_isc, ONTOLOGY = 'ALL', showCategory = 30)
