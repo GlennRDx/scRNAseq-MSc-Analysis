@@ -249,21 +249,36 @@ cluster_go_terms <- function(go_data, h = 0.9) {
 }
 
 # Plotting function
-plot_go_enrichment <- function(df) {
+plot_go_enrichment <- function(df, font_size = 8, legend_size = 12, cluster_dot_size = 8) {
   # Generate a color palette based on the number of clusters
   n_clusters <- length(unique(df$cluster))
   color_palette <- scales::hue_pal()(n_clusters)
   
   # Create labels
-  df$label <- paste(df$id, df$Term, formatC(df$p.val, format = "e", digits = 2), sep = ", ")
+  df$label <- paste(df$id, df$name, formatC(df$p.val, format = "e", digits = 2), sep = ", ")
   
-  ggplot(df, aes(x = gene_ratio, y = reorder(label, gene_ratio))) +
-    geom_point(aes(color = factor(cluster), size = gene_count)) +
+  # Rank by cluster, then by ascending gene ratio within each cluster
+  df <- df %>%
+    arrange(cluster, gene_ratio) %>%
+    mutate(rank = row_number())
+  
+  ggplot(df, aes(x = gene_ratio, y = reorder(label, rank))) +
+    geom_point(aes(color = factor(cluster), size = gene_count), shape = 21, stroke = 0.9, fill = NA) +  # Outline
+    geom_point(aes(color = factor(cluster), size = gene_count), alpha = 0.7) +  # Filled dot
+    geom_text(aes(label = cluster), size = 2.5, color = "white", fontface = "bold", show.legend = FALSE) +  # Cluster number
     facet_grid(ont ~ direction, scales = "free_y", space = "free_y") +
     scale_color_manual(values = color_palette) +
     scale_size_continuous(range = c(2, 10)) +
     theme_bw() +
-    theme(axis.text.y = element_text(size = 8)) +
+    theme(
+      axis.text.y = element_text(size = font_size),
+      legend.title = element_text(size = legend_size),
+      legend.text = element_text(size = legend_size),
+      legend.key.size = unit(cluster_dot_size, "mm")
+    ) +
+    guides(
+      color = guide_legend(override.aes = list(size = cluster_dot_size))
+    ) +
     labs(x = "Gene Ratio", y = "GO Term", color = "Cluster", size = "Gene Count")
 }
 
@@ -275,20 +290,20 @@ save_dir <- "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/4. 
 # spy_list should be created as shown in your previous message
 
 # Process all datasets
-all_results <- process_all_datasets(spy_list, save_dir, n = 10)
+# all_results <- process_all_datasets(spy_list, save_dir, n = 10)
 
 # Now you can work with individual results, e.g.:
 # enrichment_results_isc <- all_results$spy_isc
 
 # Or load a specific result file later:
-# enrichment_results_isc <- load_enrichment_results(file.path(save_dir, "spy_isc_enrichment_results.rds"))
+enrichment_results_isc <- load_enrichment_results(file.path(save_dir, "spy_ent_enrichment_results.rds"))
 
 # Perform clustering on a specific result:
-# clustered_results_isc <- cluster_go_terms(enrichment_results_isc, h = 0.9)
+clustered_results_isc <- cluster_go_terms(enrichment_results_isc, h = 0.95)
 
 # Merge clustering results with enrichment results:
-# final_results_isc <- merge(enrichment_results_isc, clustered_results_isc, by.x = "id", by.y = "GO_id", all.x = TRUE)
+final_results_isc <- merge(enrichment_results_isc, clustered_results_isc, by.x = "id", by.y = "GO_id", all.x = TRUE)
 
 # Create and display the plot:
-# go_plot_isc <- plot_go_enrichment(final_results_isc)
-# print(go_plot_isc)
+go_plot_isc <- plot_go_enrichment(final_results_isc, font_size = 10)
+print(go_plot_isc)
