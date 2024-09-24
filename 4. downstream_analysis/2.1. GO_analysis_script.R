@@ -30,19 +30,19 @@ perform_GO_enrichment <- function(df, ONTOLOGY = NULL, orgdb = org.Mm.eg.db, sho
   # Print the top 50 GO terms
   print(top50_go_terms)
   
-  # Assign dotplot to an object
-  print('Creating dotplot...')
-  enrich_dotplot <- enrichplot::dotplot(enrich, showCategory = showCategory, split = ".sign") + 
-    facet_grid(. ~ .sign) +
-    theme(axis.text.y = element_text(size = 8), 
-          plot.title = element_text(size = 14), 
-          legend.text = element_text(size = 15),
-          legend.title = element_text(size = 10),
-          axis.title.x = element_text(size = 10),
-          axis.title.y = element_text(size = 10)) +
-    scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 100))
-  
-  print(enrich_dotplot)
+  # # Assign dotplot to an object
+  # print('Creating dotplot...')
+  # enrich_dotplot <- enrichplot::dotplot(enrich, showCategory = showCategory, split = ".sign") + 
+  #   facet_grid(. ~ .sign) +
+  #   theme(axis.text.y = element_text(size = 8), 
+  #         plot.title = element_text(size = 14), 
+  #         legend.text = element_text(size = 15),
+  #         legend.title = element_text(size = 10),
+  #         axis.title.x = element_text(size = 10),
+  #         axis.title.y = element_text(size = 10)) +
+  #   scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 100))
+  # 
+  # print(enrich_dotplot)
   
   print('Creating enrichment map')
   set.seed(1)
@@ -64,4 +64,4 @@ perform_GO_enrichment <- function(df, ONTOLOGY = NULL, orgdb = org.Mm.eg.db, sho
   return(list(enrich = enrich, enrichnet = enrichnet))
 }
 
-enrichnet = perform_GO_enrichment(df = spy_isc, ONTOLOGY = 'ALL', showCategory = 30)
+enrichnet = perform_GO_enrichment(df = spy_gob, ONTOLOGY = 'ALL', showCategory = 30)

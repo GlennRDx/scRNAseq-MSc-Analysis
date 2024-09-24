@@ -1,0 +1,817 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "https://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Mar 31, 2023 09:54:51 +0900 (GMT+9) -->
+<pathway name="path:mmu04520" org="mmu" number="04520"
+         title="Adherens junction"
+         image="https://www.kegg.jp/kegg/pathway/mmu/mmu04520.png"
+         link="https://www.kegg.jp/kegg-bin/show_pathway?mmu04520">
+    <entry id="16" name="mmu:17128" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:17128">
+        <graphics name="Smad4, D18Wsu70e, DPC4, Madh4" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="668" y="862" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="mmu:12550" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12550">
+        <graphics name="Cdh1, ARC-1, E-cad, Ecad, L-CAM, UVO, Um" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1026" y="801" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="mmu:12385 mmu:12386 mmu:216033" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12385+mmu:12386+mmu:216033">
+        <graphics name="Ctnna1, 2010010M04Rik, Catna1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="512" y="648" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="mmu:12388" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12388">
+        <graphics name="Ctnnd1, Catns, Ctnnd, P120, mKIAA0384" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="327" y="661" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="mmu:12388" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12388">
+        <graphics name="Ctnnd1, Catns, Ctnnd, P120, mKIAA0384" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="335" y="265" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="mmu:12550" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12550">
+        <graphics name="Cdh1, ARC-1, E-cad, Ecad, L-CAM, UVO, Um" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="647" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="mmu:12550" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12550">
+        <graphics name="Cdh1, ARC-1, E-cad, Ecad, L-CAM, UVO, Um" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="345" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="mmu:12550" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12550">
+        <graphics name="Cdh1, ARC-1, E-cad, Ecad, L-CAM, UVO, Um" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="109" y="345" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="mmu:16842 mmu:21414 mmu:21415 mmu:21416" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:16842+mmu:21414+mmu:21415+mmu:21416">
+        <graphics name="Lef1, 3000002B05, Lef-1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="815" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="mmu:18099" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:18099">
+        <graphics name="Nlk" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="743" y="920" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="mmu:26409" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:26409">
+        <graphics name="Map3k7, B430101B05, Tak1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="668" y="920" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="mmu:12914 mmu:328572" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12914+mmu:328572">
+        <graphics name="Crebbp, CBP, CBP/p300, KAT3A, p300/CBP..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="668" y="889" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="mmu:17127" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:17127">
+        <graphics name="Smad3, Madh3" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="668" y="845" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="mmu:22612" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:22612">
+        <graphics name="Yes1, Yes, p61-Yes" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="469" y="742" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="mmu:14360" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:14360">
+        <graphics name="Fyn" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="407" y="724" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="mmu:14158" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:14158">
+        <graphics name="Fer, C330004K01Rik, Fert, Fert2" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="407" y="703" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="mmu:20613" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:20613">
+        <graphics name="Snai1, Sna, Sna1, Snail, Snail1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="892" y="816" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="mmu:20583" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:20583">
+        <graphics name="Snai2, Slug, Slugh, Snail2" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="892" y="787" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="mmu:26413 mmu:26417" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:26413+mmu:26417">
+        <graphics name="Mapk1, 9030612K14Rik, ERK, Erk2, MAPK2, PRKM2, Prkm1, p41mapk, p42mapk..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="668" y="787" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="mmu:21812 mmu:21813" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:21812+mmu:21813">
+        <graphics name="Tgfbr1, ALK5, Alk-5, ESK2, TGFR-1, TbetaR-I, TbetaRI..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="845" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="mmu:14182" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:14182">
+        <graphics name="Fgfr1, Eask, FGFR-I, FLG, Fgfr-1, Flt-2, Fr1, Hspy, MFR, bFGF-R-1, c-fgr" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="812" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="mmu:13649 mmu:13866" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:13649+mmu:13866">
+        <graphics name="Egfr, 9030024J15Rik, Erbb, Errb1, Errp, Wa5, wa-2, wa2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="786" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="mmu:17295" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:17295">
+        <graphics name="Met, HGF, HGFR, Par4, c-Met" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="761" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="mmu:16337" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:16337">
+        <graphics name="Insr, 4932439J01Rik, CD220, D630014A15Rik, IR, IR-A, IR-B" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="737" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="mmu:16001" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:16001">
+        <graphics name="Igf1r, A330103N21Rik, CD221, D930020L01, IGF-1R, hyft" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="mmu:12995 mmu:13000 mmu:13001" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12995+mmu:13000+mmu:13001">
+        <graphics name="Csnk2a1, CK_II_alpha, CK2, Csnk2a1-rs4..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="439" y="406" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="mmu:19271" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:19271">
+        <graphics name="Ptprj, BET, Byp, CD148, DEP-1, PTPbeta2, Ptpb2, R-PTP-J, R-PTP-eta, RPTPJ, Scc-1, Scc1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="338" y="497" width="46" height="17"/>
+    </entry>
+    <entry id="43" name="mmu:15170" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:15170">
+        <graphics name="Ptpn6, 70Z-SHP, Hcph, PTPTY-42, Ptp1C, SH-PTP1, SHP-1, hcp, me" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="338" y="476" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="mmu:19246" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:19246">
+        <graphics name="Ptpn1, PTP-1B, PTP-HA2, PTP1B" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="338" y="455" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="mmu:19268" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:19268">
+        <graphics name="Ptprf, LAR, LARS, RPTP-LAR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="473" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="mmu:19263" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:19263">
+        <graphics name="Ptprb, 3230402H02Rik, C130094E24, Ptpz, Rptpb, VE-PTP, Veptp" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="451" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="mmu:19274" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:19274">
+        <graphics name="Ptprm, RPTPmu, mKIAA4044" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="429" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="mmu:11431" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:11431">
+        <graphics name="Acp1, 4632432E04Rik, Acp-1, LMW-PTP, Lmptp" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="407" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="mmu:11848 mmu:67653" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:11848+mmu:67653">
+        <graphics name="Rhoa, Arha, Arha1, Arha2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="675" y="618" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="mmu:11848 mmu:67653" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:11848+mmu:67653">
+        <graphics name="Rhoa, Arha, Arha1, Arha2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="642" y="385" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="mmu:242687 mmu:245880 mmu:83767" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:242687+mmu:245880+mmu:83767">
+        <graphics name="Wasf2, D4Ertd13e, WAVE2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="912" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="mmu:108100" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:108100">
+        <graphics name="Baiap2, IRSp53" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="912" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="mmu:22376" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:22376">
+        <graphics name="Was, Wasp" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="800" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="mmu:73178" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:73178">
+        <graphics name="Wasl, 2900021I12Rik, 3110031I02Rik, N-WASP" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="746" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="55" name="mmu:170758 mmu:19353 mmu:19354" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:170758+mmu:19353+mmu:19354">
+        <graphics name="Rac3, Rac1B..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="737" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="56" name="mmu:170758 mmu:19353 mmu:19354" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:170758+mmu:19353+mmu:19354">
+        <graphics name="Rac3, Rac1B..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="912" y="232" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="mmu:12540" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12540">
+        <graphics name="Cdc42" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="800" y="232" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="mmu:11461 mmu:11465" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:11461+mmu:11465">
+        <graphics name="Actb, Actx, E430023M04Rik, beta-actin..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="688" y="647" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="mmu:11461 mmu:11465" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:11461+mmu:11465">
+        <graphics name="Actb, Actx, E430023M04Rik, beta-actin..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="688" y="345" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="mmu:12385 mmu:12386 mmu:216033" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12385+mmu:12386+mmu:216033">
+        <graphics name="Ctnna1, 2010010M04Rik, Catna1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="512" y="346" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="mmu:21872" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:21872">
+        <graphics name="Tjp1, ZO1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="625" y="668" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="mmu:21872" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:21872">
+        <graphics name="Tjp1, ZO1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="635" y="301" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="mmu:22330" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:22330">
+        <graphics name="Vcl, 9430097D22" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="575" y="690" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="mmu:22330" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:22330">
+        <graphics name="Vcl, 9430097D22" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="582" y="301" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="mmu:20411" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:20411">
+        <graphics name="Sorbs1, 2310065E01Rik, 9530001P15Rik, CAP, SH3P12, Sh3d5, mKIAA1296" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="582" y="266" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="mmu:109711 mmu:60595" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:109711+mmu:60595">
+        <graphics name="Actn1, 3110023F10Rik, Actn1a..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="575" y="668" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="mmu:109711 mmu:60595" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:109711+mmu:60595">
+        <graphics name="Actn1, 3110023F10Rik, Actn1a..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="494" y="301" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="mmu:99167" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:99167">
+        <graphics name="Ssx2ip, Adip" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="521" y="266" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="mmu:380928" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:380928">
+        <graphics name="Lmo7, FBXO20, Gm914, mKIAA0858" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="463" y="266" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="mmu:17356" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:17356">
+        <graphics name="Afdn, 5033403D15Rik, AF6, Af-6, Afadin, Gm314, I-afadin, Mllt4, S-afadin" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="625" y="690" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="mmu:17356" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:17356">
+        <graphics name="Afdn, 5033403D15Rik, AF6, Af-6, Afadin, Gm314, I-afadin, Mllt4, S-afadin" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="510" y="227" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="mmu:12387" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12387">
+        <graphics name="Ctnnb1, Bfc, Catnb, Mesc" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="709" y="506" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="mmu:12550" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12550">
+        <graphics name="Cdh1, ARC-1, E-cad, Ecad, L-CAM, UVO, Um" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="109" y="647" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="mmu:12387" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12387">
+        <graphics name="Ctnnb1, Bfc, Catnb, Mesc" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="425" y="647" width="46" height="17"/>
+    </entry>
+    <entry id="75" name="mmu:29875" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:29875">
+        <graphics name="Iqgap1, D7Ertd237e, D7Ertd257e, mKIAA0051" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="723" y="680" width="46" height="17"/>
+    </entry>
+    <entry id="76" name="mmu:29875" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:29875">
+        <graphics name="Iqgap1, D7Ertd237e, D7Ertd257e, mKIAA0051" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="437" y="614" width="46" height="17"/>
+    </entry>
+    <entry id="77" name="mmu:29875" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:29875">
+        <graphics name="Iqgap1, D7Ertd237e, D7Ertd257e, mKIAA0051" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="854" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="78" name="mmu:12540 mmu:170758 mmu:19353 mmu:19354" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12540+mmu:170758+mmu:19353+mmu:19354">
+        <graphics name="Cdc42..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="452" y="589" width="46" height="17"/>
+    </entry>
+    <entry id="79" name="mmu:12388" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12388">
+        <graphics name="Ctnnd1, Catns, Ctnnd, P120, mKIAA0384" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="327" y="359" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="mmu:12388" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12388">
+        <graphics name="Ctnnd1, Catns, Ctnnd, P120, mKIAA0384" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="629" y="590" width="46" height="17"/>
+    </entry>
+    <entry id="81" name="mmu:20779" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:20779">
+        <graphics name="Src, pp60c-src" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="457" y="703" width="46" height="17"/>
+    </entry>
+    <entry id="82" name="mmu:19294 mmu:58235 mmu:58998 mmu:71740" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:19294+mmu:58235+mmu:58998+mmu:71740">
+        <graphics name="Nectin2, Cd112, MPH, Pvr, Pvrl2, Pvs, nectin-2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="109" y="227" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="mmu:12387" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12387">
+        <graphics name="Ctnnb1, Bfc, Catnb, Mesc" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="425" y="345" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="mmu:29875" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:29875">
+        <graphics name="Iqgap1, D7Ertd237e, D7Ertd257e, mKIAA0051" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="410" y="317" width="46" height="17"/>
+    </entry>
+    <entry id="85" name="mmu:12540 mmu:170758 mmu:19353 mmu:19354" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12540+mmu:170758+mmu:19353+mmu:19354">
+        <graphics name="Cdc42..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="383" y="286" width="46" height="17"/>
+    </entry>
+    <entry id="86" name="mmu:20779" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:20779">
+        <graphics name="Src, pp60c-src" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="444" y="174" width="46" height="17"/>
+    </entry>
+    <entry id="87" name="mmu:19294 mmu:58235 mmu:58998 mmu:71740" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:19294+mmu:58235+mmu:58998+mmu:71740">
+        <graphics name="Nectin2, Cd112, MPH, Pvr, Pvrl2, Pvs, nectin-2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="227" width="46" height="17"/>
+    </entry>
+    <entry id="88" name="mmu:93742" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:93742">
+        <graphics name="Pard3, Asip, D8Ertd580e, Par-3, Par3, Pard-3, Pard3a, Phip" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="352" y="174" width="46" height="17"/>
+    </entry>
+    <entry id="89" name="mmu:227377" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:227377">
+        <graphics name="Farp2, D030026M03Rik, Fir, mKIAA0793" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="535" y="174" width="46" height="17"/>
+    </entry>
+    <entry id="90" name="path:mmu04520" type="map"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu04520">
+        <graphics name="TITLE:Adherens junction" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="126" y="58" width="172" height="25"/>
+    </entry>
+    <entry id="91" name="path:mmu04530" type="map"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu04530">
+        <graphics name="Tight junction" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="655" y="118" width="110" height="25"/>
+    </entry>
+    <entry id="92" name="path:mmu04810" type="map"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu04810">
+        <graphics name="Regulation of actin cytoskeleton" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="656" y="201" width="111" height="34"/>
+    </entry>
+    <entry id="93" name="path:mmu04310" type="map"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu04310">
+        <graphics name="Wnt signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="562" y="506" width="109" height="33"/>
+    </entry>
+    <entry id="94" name="path:mmu04010" type="map"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu04010">
+        <graphics name="MAPK signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="520" y="788" width="106" height="34"/>
+    </entry>
+    <entry id="95" name="path:mmu04350" type="map"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu04350">
+        <graphics name="TGF-beta signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="520" y="846" width="107" height="34"/>
+    </entry>
+    <entry id="96" name="path:mmu04060" type="map"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu04060">
+        <graphics name="Cytokine-cytokine receptor interaction" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="190" y="795" width="105" height="45"/>
+    </entry>
+    <entry id="237" name="mmu:12562" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12562">
+        <graphics name="Cdh5, 7B4, Cd144, VE-Cad, VECD, VEcad, Vec" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="109" y="899" width="46" height="17"/>
+    </entry>
+    <entry id="238" name="mmu:12562" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12562">
+        <graphics name="Cdh5, 7B4, Cd144, VE-Cad, VECD, VEcad, Vec" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="899" width="46" height="17"/>
+    </entry>
+    <entry id="239" name="mmu:12387" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:12387">
+        <graphics name="Ctnnb1, Bfc, Catnb, Mesc" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="374" y="899" width="46" height="17"/>
+    </entry>
+    <entry id="240" name="mmu:216527" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:216527">
+        <graphics name="Ccm2" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="374" y="933" width="46" height="17"/>
+    </entry>
+    <entry id="242" name="mmu:77446" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:77446">
+        <graphics name="Heg1, 4632417D23Rik, 5530401I02Rik, 9530025L16Rik, Gm629" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="282" y="933" width="46" height="17"/>
+    </entry>
+    <entry id="243" name="mmu:79264" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:79264">
+        <graphics name="Krit1, 2010007K12Rik, A630036P20Rik, Ccm1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="328" y="933" width="46" height="17"/>
+    </entry>
+    <entry id="245" name="mmu:56426" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:56426">
+        <graphics name="Pdcd10, 2410003B13Rik, Ccm3, Tfa15, Tfar15" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="420" y="933" width="46" height="17"/>
+    </entry>
+    <entry id="248" name="mmu:11848 mmu:67653" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:11848+mmu:67653">
+        <graphics name="Rhoa, Arha, Arha1, Arha2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="526" y="994" width="46" height="17"/>
+    </entry>
+    <entry id="250" name="mmu:66313 mmu:75788" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:66313+mmu:75788">
+        <graphics name="Smurf2, 2810411E22Rik..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="445" y="961" width="46" height="17"/>
+    </entry>
+    <entry id="252" name="mmu:19877 mmu:19878" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:19877+mmu:19878">
+        <graphics name="Rock1, 1110055K06Rik, Rock-I..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="619" y="994" width="46" height="17"/>
+    </entry>
+    <entry id="254" name="mmu:17898 mmu:17906 mmu:17907 mmu:59310 mmu:67268 mmu:67938 mmu:98932" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:17898+mmu:17906+mmu:17907+mmu:59310+mmu:67268+mmu:67938+mmu:98932">
+        <graphics name="Myl7, MLC-2alpha, MLC2a, MYL2A, Mylc2a, RLC-A..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="712" y="992" width="46" height="17"/>
+    </entry>
+    <entry id="255" name="mmu:109905 mmu:215449" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:109905+mmu:215449">
+        <graphics name="Rap1a, G-22K, Krev-1, Rap1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="327" y="995" width="46" height="17"/>
+    </entry>
+    <entry id="258" name="mmu:69903" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:69903">
+        <graphics name="Rasip1, 1110025D03Rik, 2610025P08Rik, Rain" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="373" y="986" width="46" height="17"/>
+    </entry>
+    <entry id="259" name="mmu:231858" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:231858">
+        <graphics name="Radil, D930005D10Rik" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="373" y="1003" width="46" height="17"/>
+    </entry>
+    <entry id="260" name="mmu:214137" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?mmu:214137">
+        <graphics name="Arhgap29, 6720461J18Rik, A830014I19, B130017I01Rik, Parg1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="445" y="994" width="46" height="17"/>
+    </entry>
+    <entry id="261" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="912" y="285" width="46" height="34"/>
+        <component id="51"/>
+        <component id="52"/>
+    </entry>
+    <entry id="262" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="668" y="853" width="46" height="34"/>
+        <component id="16"/>
+        <component id="28"/>
+    </entry>
+    <entry id="263" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="373" y="994" width="46" height="34"/>
+        <component id="258"/>
+        <component id="259"/>
+    </entry>
+    <relation entry1="38" entry2="19" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="37" entry2="19" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="40" entry2="74" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="38" entry2="74" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="37" entry2="74" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="31" entry2="74" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="30" entry2="74" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="81" entry2="74" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="31" entry2="19" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="30" entry2="19" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="29" entry2="19" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="48" entry2="83" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="dephosphorylation" value="-p"/>
+    </relation>
+    <relation entry1="47" entry2="83" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="dephosphorylation" value="-p"/>
+    </relation>
+    <relation entry1="46" entry2="83" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="dephosphorylation" value="-p"/>
+    </relation>
+    <relation entry1="45" entry2="83" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="dephosphorylation" value="-p"/>
+    </relation>
+    <relation entry1="47" entry2="79" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="dephosphorylation" value="-p"/>
+    </relation>
+    <relation entry1="44" entry2="83" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="dephosphorylation" value="-p"/>
+    </relation>
+    <relation entry1="43" entry2="79" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="dephosphorylation" value="-p"/>
+    </relation>
+    <relation entry1="42" entry2="79" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="dephosphorylation" value="-p"/>
+    </relation>
+    <relation entry1="82" entry2="87" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="71" entry2="87" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="69" entry2="71" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="68" entry2="71" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="65" entry2="71" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="67" entry2="69" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="67" entry2="68" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="64" entry2="65" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="60" entry2="67" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="59" entry2="67" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="60" entry2="64" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="59" entry2="64" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="59" entry2="62" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="22" entry2="23" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="22" entry2="83" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="60" entry2="83" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="59" entry2="60" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="86" entry2="89" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="41" entry2="83" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="89" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="57" entry2="54" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="57" entry2="53" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="57" entry2="77" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="71" entry2="59" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="50" entry2="59" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="56" entry2="77" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="56" entry2="261" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="24" entry2="72" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="74" entry2="72" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="76" entry2="74" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="21" entry2="73" type="PPrel">
+        <subtype name="dissociation" value="-+-"/>
+    </relation>
+    <relation entry1="21" entry2="74" type="PPrel">
+        <subtype name="dissociation" value="-+-"/>
+    </relation>
+    <relation entry1="18" entry2="74" type="PPrel">
+        <subtype name="dissociation" value="-+-"/>
+    </relation>
+    <relation entry1="18" entry2="58" type="PPrel">
+        <subtype name="dissociation" value="-+-"/>
+    </relation>
+    <relation entry1="80" entry2="49" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="18" entry2="66" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="18" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="18" entry2="61" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="18" entry2="70" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="58" entry2="66" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="58" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="58" entry2="61" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="58" entry2="70" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="87" entry2="88" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="86" entry2="56" type="PPrel">
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="57" entry2="56" type="PPrel">
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="87" entry2="86" type="PPrel">
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="37" entry2="34" type="PPrel">
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="34" entry2="33" type="PPrel">
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="36" entry2="32" type="PPrel">
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="35" entry2="32" type="PPrel">
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="35" entry2="262" type="PPrel">
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="26" entry2="25" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="54" entry2="59" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="53" entry2="59" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="77" entry2="59" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="20" entry2="85" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="85" entry2="84" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="29" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="261" entry2="59" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="29" entry2="31" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="237" entry2="238" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="238" entry2="239" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="239" entry2="240" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="242" entry2="243" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="243" entry2="240" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="240" entry2="245" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="240" entry2="250" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="243" entry2="255" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="255" entry2="263" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="258" entry2="263" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="260" entry2="258" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="250" entry2="248" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="ubiquitination" value="+u"/>
+    </relation>
+    <relation entry1="260" entry2="248" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="248" entry2="252" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="252" entry2="254" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+</pathway>
