@@ -28,7 +28,7 @@ The upstream analysis pipeline focuses on the initial processing and preparation
 5. **Normalisation:**  
    The data is normalised to median total counts then subsequently log1p transformed.
 
-6. **Batch Correction**
+6. **Batch Correction:**  
    The data are batch corrected with scvi to account for sample level differences. 
    
 7. **PCA (Principal Component Analysis):**  
