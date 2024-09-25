@@ -26,10 +26,10 @@ The upstream analysis pipeline focuses on the initial processing and preparation
    This step identifies and removes potential doublets, which are instances where two cells are captured together, to avoid skewing the analysis.
    
 5. **Normalisation:**  
-   The data is normalised to ensure that differences in sequencing depth or library size do not affect downstream analysis.
-   
-6. **Feature Selection:**  
-   Relevant features (genes) are selected based on variability across cells to be used in further analysis.
+   The data is normalised to median total counts then subsequently log1p transformed.
+
+6. **Batch Correction**
+   The data are batch corrected with scvi to account for sample level differences. 
    
 7. **PCA (Principal Component Analysis):**  
    PCA is performed to reduce the dimensionality of the data, helping to identify major trends and patterns.
@@ -50,7 +50,7 @@ The output of this pipeline is an annotated data table that serves as the input 
 The downstream analysis pipeline focuses on deriving biological insights from the annotated data table produced by the upstream pipeline. The steps include:
 
 1. **DEG (Differential Expression Gene) Analysis:**  
-   Identification of genes that are differentially expressed between conditions or clusters.
+   Identification of genes that are differentially expressed between conditions or clusters. Scanpy, DESeq2 and limma-voom methods are all provided.
    
 2. **Gene Ontology (GO) Analysis:**  
    GO analysis is performed to identify biological processes, cellular components, and molecular functions that are enriched in the differentially expressed genes.
@@ -64,12 +64,10 @@ The downstream analysis pipeline focuses on deriving biological insights from th
    - **Manual KEGG Pathway Analysis:**  
      Further manual curation and interpretation of the KEGG pathways to understand the underlying biological processes.
 
-This pipeline provides insights into the biological functions and pathways associated with the identified cell populations.
-
 ---
 
 ## How to Use
 
-To run the analysis, follow the instructions in the respective Jupyter notebooks and R scripts available in the repository. The upstream pipeline is implemented in Python using the Scanpy library, while the downstream pipeline is executed in R, leveraging tools such as Limma for DEG analysis and other R packages for pathway enrichment.
+To run the analysis, follow the instructions in the respective Jupyter notebooks and R scripts available in the repository.
 
 ---
