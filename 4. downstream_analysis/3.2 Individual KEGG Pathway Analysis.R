@@ -171,7 +171,7 @@ pathway_heatmap <- function(df_list,
 # genes <- unique(unlist(lapply(df_list, function(df) df$X)))
 # hsp_genes <- genes[grepl("^hsp", genes, ignore.case = TRUE)]
 
-pid = 'mmu04540'
+pid = 'mmu05132'
 
 # Example usage with KEGG pathway
 pathway_heatmap(spy_list, 

@@ -16,7 +16,7 @@ pathway_list = c('mmu03050', 'mmu03320', 'mmu04974', 'mmu04973', 'mmu01040', 'mm
 dataset = df_ent
 cell_type = 'ENT'
 
-directory = "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/downstream_analysis/KEGG_Results/crypt/Individual_Pathway_Analysis"
+directory = "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/5. results_repository/5. KEGG_Results/crypt/Individual_Pathway_Analysis/"
 
 # GOB details
 pathway_list = c('mmu04612', 'mmu03320')
@@ -35,7 +35,7 @@ cell_type = 'Protein_Folding'
 
 # Barrier Function Analysis
 pathway_list = c('mmu04530', 'mmu04520', 'mmu04540', 'mmu04550')
-dataset = df_ent
+dataset = spy_ent
 cell_type = 'Barrier_Function'
 
 # Inflammation Analysis

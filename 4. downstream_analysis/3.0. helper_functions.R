@@ -265,4 +265,4 @@ download_orthology_data <- function() {
 human_to_mouse_genes <- function(human_genes, orthologs_data) {
   result <- orthologs_data[orthologs_data$Human_Symbol %in% human_genes, c("Human_Symbol", "Mouse_Symbol")]
   return(result)
-}
+} 

@@ -250,4 +250,4 @@ specific_pathway_analysis(spy_ent, pid = 'mmu04540', p_val = 0.05)
 
 ################################### Misc. ######################################
 
-# https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-10-161
+# https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-10-161 
