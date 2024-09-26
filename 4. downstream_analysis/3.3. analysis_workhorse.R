@@ -65,3 +65,10 @@ for (pathway in pathway_list) {
   specific_pathway_analysis(dataset, output_directory = folder_path, pid = pathway, p_val = 0.05)
   
 }
+
+
+
+
+
+desmosome_genes <- c("Atp2a2", "Cav1", "Cdh1", "Ckap4", "Ctnnd1", "Dsc2", "Dsc3", "Dsg1", "Dsg2", "Dsg3", "Dsp", "Egfr", "Jup", "Kif2a", "Ktn1", "Pkp1", "Pkp2", "Pkp3", "Pkp4", "Prkca", "Sfn")
+pathway_heatmap(spy_list, pid = pid, custom_gene_list = desmosome_genes, scale_to_one = T, remove_na_rows = T, order_by_sum = T)

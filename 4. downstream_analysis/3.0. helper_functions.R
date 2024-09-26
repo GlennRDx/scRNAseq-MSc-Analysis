@@ -239,3 +239,30 @@ specific_pathway_analysis = function(df, pid, output_directory = '/home/', p_val
            high = list(gene = "green"))
   setwd(owd)
 }
+
+
+download_orthology_data <- function() {
+  url <- "http://www.informatics.jax.org/downloads/reports/HOM_MouseHumanSequence.rpt"
+  local_file <- "HOM_MouseHumanSequence.rpt"
+  
+  if (!file.exists(local_file)) {
+    download.file(url, local_file)
+  }
+  
+  orthology_data <- read_tsv(local_file, col_names = FALSE)
+  human_mouse_orthologs <- orthology_data[orthology_data$X1 %in% c("human", "mouse"), ]
+  
+  human_genes <- human_mouse_orthologs[human_mouse_orthologs$X1 == "human", c("X2", "X3", "X6")]
+  mouse_genes <- human_mouse_orthologs[human_mouse_orthologs$X1 == "mouse", c("X2", "X3", "X6")]
+  
+  merged_orthologs <- merge(human_genes, mouse_genes, by = "X2")
+  colnames(merged_orthologs) <- c("HomoloGene_ID", "Human_EntrezGene_ID", "Human_Symbol", "Mouse_EntrezGene_ID", "Mouse_Symbol")
+  
+  return(merged_orthologs)
+}
+
+# Function to convert human genes to mouse genes
+human_to_mouse_genes <- function(human_genes, orthologs_data) {
+  result <- orthologs_data[orthologs_data$Human_Symbol %in% human_genes, c("Human_Symbol", "Mouse_Symbol")]
+  return(result)
+}
