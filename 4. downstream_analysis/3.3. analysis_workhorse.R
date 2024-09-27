@@ -16,17 +16,17 @@ pathway_list = c('mmu03050', 'mmu03320', 'mmu04974', 'mmu04973', 'mmu01040', 'mm
 dataset = df_ent
 cell_type = 'ENT'
 
-directory = "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/5. results_repository/5. KEGG_Results/crypt/Individual_Pathway_Analysis/"
+directory = "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/5. results_repository/6. pathway_heatmaps"
 
 # GOB details
 pathway_list = c('mmu04612', 'mmu03320')
-dataset = df_gob
+dataset = spy_gob
 cell_type = 'GOB'
 
-# Lipid Metabolism Analysis
-pathway_list = c('mmu00010', 'mmu00190')
-dataset = df_ent
-cell_type = 'Lipid_Metabolism'
+# Macronutrient Metabolism Analysis
+pathway_list = c('mmu04910', 'mmu04973', 'mmu01040', 'mmu00910')
+dataset = spy_ent
+cell_type = 'Macronutrient_Metabolism'
 
 # Protein Folding Analysis
 pathway_list = c('mmu03050', 'mmu04141')
@@ -34,13 +34,13 @@ dataset = df_enp
 cell_type = 'Protein_Folding'
 
 # Barrier Function Analysis
-pathway_list = c('mmu04530', 'mmu04520', 'mmu04540', 'mmu04550')
+pathway_list = c('mmu04520', 'mmu04530', 'mmu04540')
 dataset = spy_ent
 cell_type = 'Barrier_Function'
 
 # Inflammation Analysis
-pathway_list = c('mmu04630', 'mmu04064', 'mmu04060')
-dataset = df_isc
+pathway_list = c('mmu04620', 'mmu04060', 'mmu04064')
+dataset = spy_enp
 cell_type = 'Inflammation'
 
 # Iterate through pathways for cell type
@@ -48,7 +48,7 @@ for (pathway in pathway_list) {
   
   # Construct the folder path
   folder_path = paste0(directory, "/", get_kegg_pathway_name(pathway), '_', cell_type)
-  
+
   # Create the directory
   dir.create(folder_path, recursive = TRUE, showWarnings = FALSE)
   
@@ -59,7 +59,7 @@ for (pathway in pathway_list) {
                   remove_na_rows = TRUE, 
                   order_by_sum = TRUE,
                   output_dir = folder_path,
-                  file_name = "heatmap.png")
+                  file_name = "heatmap1.png")
   
   # Individual Pathway Analysis - KEGG Graph
   specific_pathway_analysis(dataset, output_directory = folder_path, pid = pathway, p_val = 0.05)
