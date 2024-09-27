@@ -27,11 +27,11 @@ analyze_pathways <- function(df, cell_type = 'Cell_Type', p_val = 0.05, lfc = 0.
   names(foldchanges) <- gene_entrez_ids
   foldchanges <- na.omit(foldchanges)
   
-  # Perform GO enrichment analysis
-  data("go.sets.mm")
-  data("go.subs.mm")
-  gobpsets <- go.sets.mm[go.subs.mm$BP]
-  gobpres <- gage(exprs = foldchanges, gsets = gobpsets, same.dir = TRUE)
+  # # Perform GO enrichment analysis
+  # data("go.sets.mm")
+  # data("go.subs.mm")
+  # gobpsets <- go.sets.mm[go.subs.mm$BP]
+  # gobpres <- gage(exprs = foldchanges, gsets = gobpsets, same.dir = TRUE)
   
   # Perform KEGG pathway analysis
   data("kegg.sets.mm")
@@ -120,7 +120,6 @@ analyze_pathways <- function(df, cell_type = 'Cell_Type', p_val = 0.05, lfc = 0.
     setwd(original_wd)
   }
   
-  # Modify the ridge_data function to use different formatting for p-values and asterisks
   ridge_data <- function(pathway_ids, pathway_pvals, pathway_direction, cats) {
     ridge_df <- data.frame()
     for (i in seq_along(pathway_ids)) {

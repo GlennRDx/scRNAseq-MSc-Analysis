@@ -46,7 +46,7 @@ perform_GO_enrichment <- function(df, ONTOLOGY = NULL, orgdb = org.Mm.eg.db, sho
   
   print('Creating enrichment map')
   set.seed(1)
-  settings = aPEAR.methods
+  settings = aPEAR.method
   settings$minClusterSize = 3
   enrichnet = enrichmentNetwork(enrich@result,
                     drawEllipses = TRUE,

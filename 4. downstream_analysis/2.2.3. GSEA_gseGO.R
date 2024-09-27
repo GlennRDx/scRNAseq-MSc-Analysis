@@ -212,11 +212,15 @@ main_workflow <- function(df, ont_list = c("BP", "CC", "MF"), n = 20, h = 0.95, 
   return(list(results = final_results, plot = go_plot))
 }
 
-# Loop over spy_list and apply the workflow
-for (spy_name in names(spy_list)) {
-  # Extract the dataset and set the title based on the last 3 characters of spy_name, in uppercase
-  dataset <- spy_list[[spy_name]]
-  title_suffix <- toupper(substr(spy_name, nchar(spy_name) - 2, nchar(spy_name)))  # Extract and capitalize last 3 characters
+main_workflow(spy_eec, n = 50, title = 'EEC')
+
+df_list = dsq_list
+
+# Loop over dataset list and apply the workflow
+for (df_name in names(df_list)) {
+  # Extract the dataset and set the title based on the last 3 characters of dataset, in uppercase
+  dataset <- df_list[[df_name]]
+  title_suffix <- toupper(substr(df_name, nchar(df_name) - 2, nchar(df_name)))  # Extract and capitalize last 3 characters
   title <- paste("GO Term Enrichment - Dot Plots -", title_suffix)  # Construct the title
   
   # Run the workflow and print the plot to the plotting environment
