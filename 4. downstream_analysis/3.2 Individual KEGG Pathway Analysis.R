@@ -186,4 +186,4 @@ pathway_heatmap(spy_list,
                 h = 2600)
 
 
-# pathway_heatmap(df_list, custom_gene_list = hsp_genes, scale_to_one = T, remove_na_rows = T, order_by_sum = T)
+# pathway_heatmap(spy_list, custom_gene_list = hsp_genes, scale_to_one = T, remove_na_rows = T, order_by_sum = T)

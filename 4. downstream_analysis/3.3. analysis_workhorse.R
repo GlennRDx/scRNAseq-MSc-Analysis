@@ -2,8 +2,8 @@
 process_files(input_directory = crypt_path, output_directory = crp_out_path, p_val = 0.05, lfc = 0, export_pathway_files = T, cats = cats)
 
 # ISC details
-pathway_list = c('mmu04110', 'mmu03030', 'mmu03050')
-dataset = df_isc
+pathway_list = c('mmu04110', 'mmu03030')
+dataset = spy_isc
 cell_type = 'ISC'
 
 # # ENP details
@@ -24,7 +24,7 @@ dataset = spy_gob
 cell_type = 'GOB'
 
 # Macronutrient Metabolism Analysis
-pathway_list = c('mmu04910', 'mmu04973', 'mmu01040', 'mmu00910')
+pathway_list = c('mmu04975', 'mmu04910', 'mmu00071', 'mmu04973', 'mmu00910') #'mmu01040'
 dataset = spy_ent
 cell_type = 'Macronutrient_Metabolism'
 
@@ -42,6 +42,11 @@ cell_type = 'Barrier_Function'
 pathway_list = c('mmu04620', 'mmu04060', 'mmu04064')
 dataset = spy_enp
 cell_type = 'Inflammation'
+
+# Folding, sorting and degradation 
+pathway_list = c('mmu04141', 'mmu03050', 'mmu04120')
+dataset = spy_enp
+cell_type = 'Folding, sorting and degradation'
 
 # Iterate through pathways for cell type
 for (pathway in pathway_list) {

@@ -133,7 +133,7 @@ analyze_pathways <- function(df, cell_type = 'Cell_Type', p_val = 0.05, lfc = 0.
         if (length(pathway_subcategory) == 0) {
           pathway_subcategory <- "Unknown"
         }
-        pathway_name <- keggres@result$Description[keggres@result$ID == pid]
+        pathway_name <- pathway_name <- get_kegg_pathway_name(pid)
         pval_formatted <- formatC(pval, format = "e", digits = 2)
         stars <- ""
         if (pval < 0.001) {

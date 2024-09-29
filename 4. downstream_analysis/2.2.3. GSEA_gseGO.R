@@ -212,7 +212,7 @@ main_workflow <- function(df, ont_list = c("BP", "CC", "MF"), n = 20, h = 0.95, 
   return(list(results = final_results, plot = go_plot))
 }
 
-main_workflow(spy_eec, n = 50, title = 'EEC')
+main_workflow(spy_enp, n = 50, title = 'ENP')
 
 df_list = dsq_list
 
