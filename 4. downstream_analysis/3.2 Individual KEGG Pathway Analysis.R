@@ -10,13 +10,22 @@ pathway_heatmap <- function(df_list,
                             w = 1500,
                             h = 2200) {
   
-  pathway_name = get_kegg_pathway_name(pid)
+  # pathway_name = get_kegg_pathway_name(pid)
   
   # Step 1: Determine the gene list
   if (!is.null(custom_gene_list)) {
     gene_list <- unique(custom_gene_list)
   } else if (!is.null(pid)) {
-    gene_list <- unique(get_gene_list(pid, 'KEGG')$SYMBOL)
+    # Choose 'KEGG' if pid starts with 'mmu', otherwise 'GO' if pid starts with 'GO'
+    if (startsWith(pid, "mmu")) {
+      print("KEGG")
+      gene_list <- unique(get_gene_list(pid, 'KEGG')$SYMBOL)
+    } else if (startsWith(pid, "GO")) {
+      print("GO")
+      gene_list <- unique(get_gene_list(pid, 'GO')$SYMBOL)
+    } else {
+      stop("Unsupported pid format. pid should start with 'mmu' or 'GO'.")
+    }
   } else {
     stop("Either 'pid' or 'custom_gene_list' must be provided.")
   }
@@ -130,12 +139,12 @@ pathway_heatmap <- function(df_list,
   # Apply the function to the p-value table
   significance_symbols <- apply(p_val_clean, c(1, 2), pval_to_significance)
   
-  # Generate the heatmap with significance annotations
-  title_text <- if (remove_na_rows) {
-    paste0(pathway_name, "\nHeatmap of logFC ", if (!is.null(pid)) pid else "Custom Genes", ' - ', n_omitted, " genes omitted (", percentage_omitted, "%)")
-  } else {
-    paste0(pathway_name, "\nHeatmap of logFC ", if (!is.null(pid)) pid else "Custom Genes")
-  }
+  # # Generate the heatmap with significance annotations
+  # title_text <- if (remove_na_rows) {
+  #   paste0(pathway_name, "\nHeatmap of logFC ", if (!is.null(pid)) pid else "Custom Genes", ' - ', n_omitted, " genes omitted (", percentage_omitted, "%)")
+  # } else {
+  #   paste0(pathway_name, "\nHeatmap of logFC ", if (!is.null(pid)) pid else "Custom Genes")
+  # }
   
   # Ensure output directory exists
   if (!dir.exists(output_dir)) {
@@ -150,7 +159,7 @@ pathway_heatmap <- function(df_list,
   
   # Plot the heatmap
   pheatmap(logFC_clean, 
-           main = title_text, 
+           main = "whatevs", 
            cluster_rows = !order_by_sum,  # Cluster rows if not ordering by sum
            cluster_cols = FALSE, 
            display_numbers = significance_symbols, 
@@ -171,7 +180,7 @@ pathway_heatmap <- function(df_list,
 # genes <- unique(unlist(lapply(df_list, function(df) df$X)))
 # hsp_genes <- genes[grepl("^hsp", genes, ignore.case = TRUE)]
 
-pid = 'mmu05321'
+pid = 'GO:0005125'
 
 # Example usage with KEGG pathway
 pathway_heatmap(spy_list, 
@@ -180,10 +189,14 @@ pathway_heatmap(spy_list,
                 remove_na_rows = TRUE, 
                 order_by_sum = TRUE,
                 output_dir = "/home/glennrdx/Documents/Research_Project/scRNAseq-MSc-Analysis/5. results_repository/6. pathway_heatmaps",
-                file_name = paste0(pid, " - ", get_kegg_pathway_name(pid = pid), " - heatmap.png"),
+                # file_name = paste0(pid, " - ", get_kegg_pathway_name(pid = pid), " - heatmap.png"),
+                file_name = paste0(pid, " - ", "test", " - heatmap.png"),
                 fontsize = 16,
                 w = 2000,
                 h = 2600)
 
-
-# pathway_heatmap(spy_list, custom_gene_list = hsp_genes, scale_to_one = T, remove_na_rows = T, order_by_sum = T)
+# # # Example usage with a custom gene list
+genes <- unique(unlist(lapply(spy_list, function(df) df$X)))
+cxc_genes <- genes[grepl("^cx", genes, ignore.case = TRUE)]
+cxc_genes
+pathway_heatmap(spy_list, pid = pid, file_name = 'reg', output_dir = '/home/glennrdx/Desktop', custom_gene_list = custom, scale_to_one = T, remove_na_rows = T, order_by_sum = T)

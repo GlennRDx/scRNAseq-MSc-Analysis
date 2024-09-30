@@ -64,4 +64,4 @@ perform_GO_enrichment <- function(df, ONTOLOGY = NULL, orgdb = org.Mm.eg.db, sho
   return(list(enrich = enrich, enrichnet = enrichnet))
 }
 
-enrichnet = perform_GO_enrichment(df = spy_isc, ONTOLOGY = 'ALL', showCategory = 30)
+enrichnet = perform_GO_enrichment(df = spy_enp, ONTOLOGY = 'ALL', showCategory = 50)
